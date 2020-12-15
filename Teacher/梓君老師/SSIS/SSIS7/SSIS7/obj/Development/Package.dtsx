@@ -1,0 +1,3163 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/2/2020 1:48:25 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="Teacher"
+  DTS:CreatorName="Teacher\User"
+  DTS:DTSID="{51946C86-FF80-4851-9DB4-BE57330D4AAC}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.132"
+  DTS:LocaleID="1028"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{27FD0EE5-1171-4C98-8DB9-1CE970B43E68}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[GroupBy結果檔案]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{6203CDF8-DF72-4C32-AA99-9712719A5AF5}"
+      DTS:ObjectName="GroupBy結果檔案">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1028"
+          DTS:Unicode="True"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="950"
+          DTS:ConnectionString="C:\BB\結果.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="訂單年"
+              DTS:DTSID="{5970BFD7-8064-4A5D-9089-D8B185BE87D2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="類別名稱"
+              DTS:DTSID="{A6680DEB-E2AF-4F3D-A031-7EFD00D81E7E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="20"
+              DTS:TextQualified="True"
+              DTS:ObjectName="數量 的副本"
+              DTS:DTSID="{0B79C49C-721D-4F9F-A15D-CE83756A0A93}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[產品檔案連接]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{9D20D6F2-E00D-4E87-A12B-B7D165119304}"
+      DTS:ObjectName="產品檔案連接">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1028"
+          DTS:Unicode="True"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="950"
+          DTS:ConnectionString="C:\BB\北風文字檔\北風產品.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 0"
+              DTS:DTSID="{663CAC41-B792-4785-B59E-852A64DD425F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 1"
+              DTS:DTSID="{4B033985-078C-4FB4-9220-EC62FAD8DAEB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 2"
+              DTS:DTSID="{B107B592-3742-431C-9C08-2EC0CADA1E66}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[產品類別檔案連接]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{5A7608F3-8F6B-4CBA-80FB-E04E80EAAD48}"
+      DTS:ObjectName="產品類別檔案連接">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1028"
+          DTS:Unicode="True"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="950"
+          DTS:ConnectionString="C:\BB\北風文字檔\北風產品類別.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 0"
+              DTS:DTSID="{4D0ED95B-DB7A-46A2-B6A2-3B216615BCB1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 1"
+              DTS:DTSID="{4D472B54-FEA2-4204-8F90-A9CC68ACDF54}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[訂貨主檔檔案連接]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{07860FD3-4033-4FC2-B9EC-77A8FBB3C60E}"
+      DTS:ObjectName="訂貨主檔檔案連接">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1028"
+          DTS:Unicode="True"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="950"
+          DTS:ConnectionString="C:\BB\北風文字檔\北風訂單主檔.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 0"
+              DTS:DTSID="{DF84C5DE-FC34-4E09-8ECD-957A3AF7618D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 1"
+              DTS:DTSID="{9DBDC893-DAB5-49DC-BCED-734DB225666F}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[訂貨明細檔案連接]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{3DB91FD7-B906-4061-BDE9-F9B4687D39E8}"
+      DTS:ObjectName="訂貨明細檔案連接">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1028"
+          DTS:Unicode="True"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="950"
+          DTS:ConnectionString="C:\BB\北風文字檔\北風訂單明細.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 0"
+              DTS:DTSID="{3BDBA307-C23A-452E-AFB9-2536B6698D20}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 1"
+              DTS:DTSID="{5F814151-E228-4B7E-BDD7-F3A2D0898E79}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 2"
+              DTS:DTSID="{164086D7-7C25-4A12-8330-9C542FBFB40C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 3"
+              DTS:DTSID="{1D4B12CA-6188-4FDE-ADF5-D6454F88EC56}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 4"
+              DTS:DTSID="{1D2658F6-DEBA-4A49-A87C-170103A193A0}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\資料流程工作"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="資料流程工作"
+      DTS:DTSID="{0DF94E9C-F27D-4AB2-8DC6-C9B3559C5ECE}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="資料流程工作"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\資料流程工作\一般檔案目的地"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="一般檔案目的地;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;1"
+              description="一般檔案目的地"
+              localeId="1028"
+              name="一般檔案目的地"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="指定資料將會覆寫或附加至目的地檔案。"
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="指定寫入任何資料之前，要寫入目的地檔案的文字。"
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="如有啟用文字限定詞，請指定寫入目的地檔案之資料中的文字限定詞是否需要逸出。"
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\資料流程工作\一般檔案目的地.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[GroupBy結果檔案]"
+                  connectionManagerRefId="Package.ConnectionManagers[GroupBy結果檔案]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\資料流程工作\一般檔案目的地.Inputs[一般檔案目的地輸入]"
+                  hasSideEffects="true"
+                  name="一般檔案目的地輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\資料流程工作\一般檔案目的地.Inputs[一般檔案目的地輸入].Columns[訂單年]"
+                      cachedDataType="i4"
+                      cachedName="訂單年"
+                      externalMetadataColumnId="Package\資料流程工作\一般檔案目的地.Inputs[一般檔案目的地輸入].ExternalColumns[訂單年]"
+                      lineageId="Package\資料流程工作\彙總.Outputs[彙總輸出 1].Columns[訂單年]" />
+                    <inputColumn
+                      refId="Package\資料流程工作\一般檔案目的地.Inputs[一般檔案目的地輸入].Columns[類別名稱]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="類別名稱"
+                      externalMetadataColumnId="Package\資料流程工作\一般檔案目的地.Inputs[一般檔案目的地輸入].ExternalColumns[類別名稱]"
+                      lineageId="Package\資料流程工作\彙總.Outputs[彙總輸出 1].Columns[類別名稱]" />
+                    <inputColumn
+                      refId="Package\資料流程工作\一般檔案目的地.Inputs[一般檔案目的地輸入].Columns[數量 的副本]"
+                      cachedDataType="i8"
+                      cachedName="數量 的副本"
+                      externalMetadataColumnId="Package\資料流程工作\一般檔案目的地.Inputs[一般檔案目的地輸入].ExternalColumns[數量 的副本]"
+                      lineageId="Package\資料流程工作\彙總.Outputs[彙總輸出 1].Columns[數量 的副本]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\一般檔案目的地.Inputs[一般檔案目的地輸入].ExternalColumns[訂單年]"
+                      dataType="i4"
+                      name="訂單年" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\一般檔案目的地.Inputs[一般檔案目的地輸入].ExternalColumns[類別名稱]"
+                      dataType="wstr"
+                      length="50"
+                      name="類別名稱" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\一般檔案目的地.Inputs[一般檔案目的地輸入].ExternalColumns[數量 的副本]"
+                      dataType="i8"
+                      name="數量 的副本" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\資料流程工作\合併聯結"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="合併聯結;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;1"
+              description="使用 FULL、LEFT 或 INNER 聯結將兩個排序的資料流程結合成一個。建議於資料流程能在來源排序時使用這種轉換。"
+              name="合併聯結"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="指定要執行之聯結的類型。"
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定排序索引鍵裡的資料行數目。"
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指出 Null 值是否當成相等值處理。"
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="指出在封鎖之前，每一個輸入所要求的最大緩衝區數目。"
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\資料流程工作\合併聯結.Inputs[合併聯結左方輸入]"
+                  hasSideEffects="true"
+                  name="合併聯結左方輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\資料流程工作\合併聯結.Inputs[合併聯結左方輸入].Columns[類別編號]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="類別編號"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[類別編號]" />
+                    <inputColumn
+                      refId="Package\資料流程工作\合併聯結.Inputs[合併聯結左方輸入].Columns[產品編號]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="產品編號"
+                      lineageId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[產品編號]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\資料流程工作\合併聯結.Inputs[合併聯結右方輸入]"
+                  hasSideEffects="true"
+                  name="合併聯結右方輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\資料流程工作\合併聯結.Inputs[合併聯結右方輸入].Columns[類別編號]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="類別編號"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\資料流程工作\排序 1.Outputs[排序輸出].Columns[類別編號]" />
+                    <inputColumn
+                      refId="Package\資料流程工作\合併聯結.Inputs[合併聯結右方輸入].Columns[類別名稱]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="類別名稱"
+                      lineageId="Package\資料流程工作\排序 1.Outputs[排序輸出].Columns[類別名稱]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\資料流程工作\合併聯結.Outputs[合併聯結輸出]"
+                  name="合併聯結輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\合併聯結.Outputs[合併聯結輸出].Columns[產品編號]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作\合併聯結.Outputs[合併聯結輸出].Columns[產品編號]"
+                      name="產品編號">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="與此輸出資料行關聯的輸入資料行"
+                          name="InputColumnID">#{Package\資料流程工作\合併聯結.Inputs[合併聯結左方輸入].Columns[產品編號]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\合併聯結.Outputs[合併聯結輸出].Columns[類別名稱]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作\合併聯結.Outputs[合併聯結輸出].Columns[類別名稱]"
+                      name="類別名稱">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="與此輸出資料行關聯的輸入資料行"
+                          name="InputColumnID">#{Package\資料流程工作\合併聯結.Inputs[合併聯結右方輸入].Columns[類別名稱]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\資料流程工作\合併聯結 1"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="合併聯結;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;1"
+              description="使用 FULL、LEFT 或 INNER 聯結將兩個排序的資料流程結合成一個。建議於資料流程能在來源排序時使用這種轉換。"
+              name="合併聯結 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="指定要執行之聯結的類型。"
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定排序索引鍵裡的資料行數目。"
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指出 Null 值是否當成相等值處理。"
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="指出在封鎖之前，每一個輸入所要求的最大緩衝區數目。"
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\資料流程工作\合併聯結 1.Inputs[合併聯結左方輸入]"
+                  hasSideEffects="true"
+                  name="合併聯結左方輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\資料流程工作\合併聯結 1.Inputs[合併聯結左方輸入].Columns[訂單號碼]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="訂單號碼"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\資料流程工作\排序 2.Outputs[排序輸出].Columns[訂單號碼]" />
+                    <inputColumn
+                      refId="Package\資料流程工作\合併聯結 1.Inputs[合併聯結左方輸入].Columns[訂單年]"
+                      cachedDataType="i4"
+                      cachedName="訂單年"
+                      lineageId="Package\資料流程工作\排序 2.Outputs[排序輸出].Columns[訂單年]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\資料流程工作\合併聯結 1.Inputs[合併聯結右方輸入]"
+                  hasSideEffects="true"
+                  name="合併聯結右方輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\資料流程工作\合併聯結 1.Inputs[合併聯結右方輸入].Columns[訂單號碼]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="訂單號碼"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\資料流程工作\排序 3.Outputs[排序輸出].Columns[訂單號碼]" />
+                    <inputColumn
+                      refId="Package\資料流程工作\合併聯結 1.Inputs[合併聯結右方輸入].Columns[產品編號]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="產品編號"
+                      lineageId="Package\資料流程工作\排序 3.Outputs[排序輸出].Columns[產品編號]" />
+                    <inputColumn
+                      refId="Package\資料流程工作\合併聯結 1.Inputs[合併聯結右方輸入].Columns[數量 的副本]"
+                      cachedDataType="i4"
+                      cachedName="數量 的副本"
+                      lineageId="Package\資料流程工作\排序 3.Outputs[排序輸出].Columns[數量 的副本]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\資料流程工作\合併聯結 1.Outputs[合併聯結輸出]"
+                  name="合併聯結輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\合併聯結 1.Outputs[合併聯結輸出].Columns[訂單年]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\合併聯結 1.Outputs[合併聯結輸出].Columns[訂單年]"
+                      name="訂單年">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="與此輸出資料行關聯的輸入資料行"
+                          name="InputColumnID">#{Package\資料流程工作\合併聯結 1.Inputs[合併聯結左方輸入].Columns[訂單年]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\合併聯結 1.Outputs[合併聯結輸出].Columns[產品編號]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作\合併聯結 1.Outputs[合併聯結輸出].Columns[產品編號]"
+                      name="產品編號">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="與此輸出資料行關聯的輸入資料行"
+                          name="InputColumnID">#{Package\資料流程工作\合併聯結 1.Inputs[合併聯結右方輸入].Columns[產品編號]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\合併聯結 1.Outputs[合併聯結輸出].Columns[數量 的副本]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\合併聯結 1.Outputs[合併聯結輸出].Columns[數量 的副本]"
+                      name="數量 的副本">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="與此輸出資料行關聯的輸入資料行"
+                          name="InputColumnID">#{Package\資料流程工作\合併聯結 1.Inputs[合併聯結右方輸入].Columns[數量 的副本]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\資料流程工作\合併聯結 2"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="合併聯結;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;1"
+              description="使用 FULL、LEFT 或 INNER 聯結將兩個排序的資料流程結合成一個。建議於資料流程能在來源排序時使用這種轉換。"
+              name="合併聯結 2"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="指定要執行之聯結的類型。"
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定排序索引鍵裡的資料行數目。"
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指出 Null 值是否當成相等值處理。"
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="指出在封鎖之前，每一個輸入所要求的最大緩衝區數目。"
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\資料流程工作\合併聯結 2.Inputs[合併聯結左方輸入]"
+                  hasSideEffects="true"
+                  name="合併聯結左方輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\資料流程工作\合併聯結 2.Inputs[合併聯結左方輸入].Columns[產品編號]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="產品編號"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\資料流程工作\排序 4.Outputs[排序輸出].Columns[產品編號]" />
+                    <inputColumn
+                      refId="Package\資料流程工作\合併聯結 2.Inputs[合併聯結左方輸入].Columns[訂單年]"
+                      cachedDataType="i4"
+                      cachedName="訂單年"
+                      lineageId="Package\資料流程工作\排序 4.Outputs[排序輸出].Columns[訂單年]" />
+                    <inputColumn
+                      refId="Package\資料流程工作\合併聯結 2.Inputs[合併聯結左方輸入].Columns[數量 的副本]"
+                      cachedDataType="i4"
+                      cachedName="數量 的副本"
+                      lineageId="Package\資料流程工作\排序 4.Outputs[排序輸出].Columns[數量 的副本]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\資料流程工作\合併聯結 2.Inputs[合併聯結右方輸入]"
+                  hasSideEffects="true"
+                  name="合併聯結右方輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\資料流程工作\合併聯結 2.Inputs[合併聯結右方輸入].Columns[產品編號]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="產品編號"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\資料流程工作\排序 5.Outputs[排序輸出].Columns[產品編號]" />
+                    <inputColumn
+                      refId="Package\資料流程工作\合併聯結 2.Inputs[合併聯結右方輸入].Columns[類別名稱]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="類別名稱"
+                      lineageId="Package\資料流程工作\排序 5.Outputs[排序輸出].Columns[類別名稱]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\資料流程工作\合併聯結 2.Outputs[合併聯結輸出]"
+                  name="合併聯結輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\合併聯結 2.Outputs[合併聯結輸出].Columns[訂單年]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\合併聯結 2.Outputs[合併聯結輸出].Columns[訂單年]"
+                      name="訂單年">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="與此輸出資料行關聯的輸入資料行"
+                          name="InputColumnID">#{Package\資料流程工作\合併聯結 2.Inputs[合併聯結左方輸入].Columns[訂單年]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\合併聯結 2.Outputs[合併聯結輸出].Columns[類別名稱]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作\合併聯結 2.Outputs[合併聯結輸出].Columns[類別名稱]"
+                      name="類別名稱">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="與此輸出資料行關聯的輸入資料行"
+                          name="InputColumnID">#{Package\資料流程工作\合併聯結 2.Inputs[合併聯結右方輸入].Columns[類別名稱]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\合併聯結 2.Outputs[合併聯結輸出].Columns[數量 的副本]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\合併聯結 2.Outputs[合併聯結輸出].Columns[數量 的副本]"
+                      name="數量 的副本">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="與此輸出資料行關聯的輸入資料行"
+                          name="InputColumnID">#{Package\資料流程工作\合併聯結 2.Inputs[合併聯結左方輸入].Columns[數量 的副本]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\資料流程工作\彙總"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="彙總;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;3"
+              description="使用 Average、Sum、Count、Max 和 Min 等函數彙總資料。例如，群組資料以計算每一產品的銷售總和或每天的到訪次數。"
+              name="彙總"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="指定彙總產生之群組依據索引鍵的近似數目。低表示 50 萬個索引鍵值、中表示 500 萬個索引鍵值、高表示超過 2,500 萬個索引鍵值。未指定表示不使用 KeyScale。"
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="指定彙總產生的群組依據索引鍵的確實數目。如果指定了 KeyScale 值，則會優先使用 Keys 裡的值。"
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="指定資料行中彙總計算確定之相異值的近似數目。低表示 50 萬個索引鍵值、中表示 500 萬個索引鍵值、高表示2,500 萬個索引鍵值。未指定表示不使用 CountDistinctScale 值。"
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="指定資料行中彙總計算確定之相異值的確實數目。如果指定了 CountDistinctScale 值，會優先使用 CountDistinctKeys 裡的值。"
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="指定在彙總期間，記憶體可以擴充的百分比。有效值在 1 到 100 之間。"
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\資料流程工作\彙總.Inputs[彙總輸入 1]"
+                  name="彙總輸入 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\資料流程工作\彙總.Inputs[彙總輸入 1].Columns[訂單年]"
+                      cachedDataType="i4"
+                      cachedName="訂單年"
+                      lineageId="Package\資料流程工作\合併聯結 2.Outputs[合併聯結輸出].Columns[訂單年]" />
+                    <inputColumn
+                      refId="Package\資料流程工作\彙總.Inputs[彙總輸入 1].Columns[類別名稱]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="類別名稱"
+                      lineageId="Package\資料流程工作\合併聯結 2.Outputs[合併聯結輸出].Columns[類別名稱]" />
+                    <inputColumn
+                      refId="Package\資料流程工作\彙總.Inputs[彙總輸入 1].Columns[數量 的副本]"
+                      cachedDataType="i4"
+                      cachedName="數量 的副本"
+                      lineageId="Package\資料流程工作\合併聯結 2.Outputs[合併聯結輸出].Columns[數量 的副本]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\資料流程工作\彙總.Outputs[彙總輸出 1]"
+                  name="彙總輸出 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="指定彙總產生之群組依據索引鍵的近似數目。低表示 50 萬個索引鍵值、中表示 500 萬個索引鍵值、高表示超過 2,500 萬個索引鍵值。未指定表示不使用 KeyScale。"
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="指定彙總產生的群組依據索引鍵的確實數目。如果指定了 KeyScale 值，則會優先使用 Keys 裡的值。"
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\彙總.Outputs[彙總輸出 1].Columns[訂單年]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\彙總.Outputs[彙總輸出 1].Columns[訂單年]"
+                      name="訂單年">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定彙總中使用之輸入資料行的識別碼。"
+                          name="AggregationColumnId">#{Package\資料流程工作\合併聯結 2.Outputs[合併聯結輸出].Columns[訂單年]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定彙總的類型。"
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指出資料行是否需要特別處理，因為它可能包含過大的資料或需要比浮點數資料類型更高的有效位數。"
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字串比較選項。"
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\彙總.Outputs[彙總輸出 1].Columns[類別名稱]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作\彙總.Outputs[彙總輸出 1].Columns[類別名稱]"
+                      name="類別名稱">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定彙總中使用之輸入資料行的識別碼。"
+                          name="AggregationColumnId">#{Package\資料流程工作\合併聯結 2.Outputs[合併聯結輸出].Columns[類別名稱]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定彙總的類型。"
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指出資料行是否需要特別處理，因為它可能包含過大的資料或需要比浮點數資料類型更高的有效位數。"
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字串比較選項。"
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\彙總.Outputs[彙總輸出 1].Columns[數量 的副本]"
+                      dataType="i8"
+                      lineageId="Package\資料流程工作\彙總.Outputs[彙總輸出 1].Columns[數量 的副本]"
+                      name="數量 的副本">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定彙總中使用之輸入資料行的識別碼。"
+                          name="AggregationColumnId">#{Package\資料流程工作\合併聯結 2.Outputs[合併聯結輸出].Columns[數量 的副本]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定彙總的類型。"
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指出資料行是否需要特別處理，因為它可能包含過大的資料或需要比浮點數資料類型更高的有效位數。"
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字串比較選項。"
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\資料流程工作\排序"
+              componentClassID="Microsoft.Sort"
+              contactInfo="排序;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;1"
+              description="無法在來源排序資料時，依遞增或遞減順序排序輸入資料。例如，先依 [客戶識別碼] 排序銷售資料，然後再將它寫入一般檔案並且傳遞給其他部門。注意: 不建議對大型資料流程採用這種轉換。"
+              name="排序"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="指出排序轉換是否移除有重複排序值的資料列。"
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用於排序之執行緒最大數目。"
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\資料流程工作\排序.Inputs[排序輸入]"
+                  name="排序輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\資料流程工作\排序.Inputs[排序輸入].Columns[產品編號]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="產品編號"
+                      lineageId="Package\資料流程工作\產品資料.Outputs[一般檔案來源輸出].Columns[產品編號]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字元資料的比較選項。"
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行的排序次序。"
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作\排序.Inputs[排序輸入].Columns[產品名]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="產品名"
+                      lineageId="Package\資料流程工作\產品資料.Outputs[一般檔案來源輸出].Columns[產品名]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字元資料的比較選項。"
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行的排序次序。"
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作\排序.Inputs[排序輸入].Columns[類別編號]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="類別編號"
+                      lineageId="Package\資料流程工作\產品資料.Outputs[一般檔案來源輸出].Columns[類別編號]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字元資料的比較選項。"
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行的排序次序。"
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\資料流程工作\排序.Outputs[排序輸出]"
+                  isSorted="true"
+                  name="排序輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[產品編號]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[產品編號]"
+                      name="產品編號">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定與此輸出資料行相關聯之輸入資料行的譜系識別碼。"
+                          name="SortColumnId">#{Package\資料流程工作\產品資料.Outputs[一般檔案來源輸出].Columns[產品編號]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[產品名]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[產品名]"
+                      name="產品名">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定與此輸出資料行相關聯之輸入資料行的譜系識別碼。"
+                          name="SortColumnId">#{Package\資料流程工作\產品資料.Outputs[一般檔案來源輸出].Columns[產品名]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[類別編號]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[類別編號]"
+                      name="類別編號"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定與此輸出資料行相關聯之輸入資料行的譜系識別碼。"
+                          name="SortColumnId">#{Package\資料流程工作\產品資料.Outputs[一般檔案來源輸出].Columns[類別編號]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\資料流程工作\排序 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="排序;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;1"
+              description="無法在來源排序資料時，依遞增或遞減順序排序輸入資料。例如，先依 [客戶識別碼] 排序銷售資料，然後再將它寫入一般檔案並且傳遞給其他部門。注意: 不建議對大型資料流程採用這種轉換。"
+              name="排序 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="指出排序轉換是否移除有重複排序值的資料列。"
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用於排序之執行緒最大數目。"
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\資料流程工作\排序 1.Inputs[排序輸入]"
+                  name="排序輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\資料流程工作\排序 1.Inputs[排序輸入].Columns[類別編號]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="類別編號"
+                      lineageId="Package\資料流程工作\產品類別.Outputs[一般檔案來源輸出].Columns[類別編號]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字元資料的比較選項。"
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行的排序次序。"
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作\排序 1.Inputs[排序輸入].Columns[類別名稱]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="類別名稱"
+                      lineageId="Package\資料流程工作\產品類別.Outputs[一般檔案來源輸出].Columns[類別名稱]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字元資料的比較選項。"
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行的排序次序。"
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\資料流程工作\排序 1.Outputs[排序輸出]"
+                  isSorted="true"
+                  name="排序輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\排序 1.Outputs[排序輸出].Columns[類別編號]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作\排序 1.Outputs[排序輸出].Columns[類別編號]"
+                      name="類別編號"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定與此輸出資料行相關聯之輸入資料行的譜系識別碼。"
+                          name="SortColumnId">#{Package\資料流程工作\產品類別.Outputs[一般檔案來源輸出].Columns[類別編號]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\排序 1.Outputs[排序輸出].Columns[類別名稱]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作\排序 1.Outputs[排序輸出].Columns[類別名稱]"
+                      name="類別名稱">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定與此輸出資料行相關聯之輸入資料行的譜系識別碼。"
+                          name="SortColumnId">#{Package\資料流程工作\產品類別.Outputs[一般檔案來源輸出].Columns[類別名稱]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\資料流程工作\排序 2"
+              componentClassID="Microsoft.Sort"
+              contactInfo="排序;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;1"
+              description="無法在來源排序資料時，依遞增或遞減順序排序輸入資料。例如，先依 [客戶識別碼] 排序銷售資料，然後再將它寫入一般檔案並且傳遞給其他部門。注意: 不建議對大型資料流程採用這種轉換。"
+              name="排序 2"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="指出排序轉換是否移除有重複排序值的資料列。"
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用於排序之執行緒最大數目。"
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\資料流程工作\排序 2.Inputs[排序輸入]"
+                  name="排序輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\資料流程工作\排序 2.Inputs[排序輸入].Columns[訂單號碼]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="訂單號碼"
+                      lineageId="Package\資料流程工作\訂貨主檔.Outputs[一般檔案來源輸出].Columns[訂單號碼]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字元資料的比較選項。"
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行的排序次序。"
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作\排序 2.Inputs[排序輸入].Columns[訂單日期]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="訂單日期"
+                      lineageId="Package\資料流程工作\訂貨主檔.Outputs[一般檔案來源輸出].Columns[訂單日期]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字元資料的比較選項。"
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行的排序次序。"
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作\排序 2.Inputs[排序輸入].Columns[新訂單日期]"
+                      cachedDataType="date"
+                      cachedName="新訂單日期"
+                      lineageId="Package\資料流程工作\資料轉換.Outputs[資料轉換輸出].Columns[新訂單日期]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字元資料的比較選項。"
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行的排序次序。"
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作\排序 2.Inputs[排序輸入].Columns[訂單年]"
+                      cachedDataType="i4"
+                      cachedName="訂單年"
+                      lineageId="Package\資料流程工作\衍生的資料行.Outputs[衍生的資料行輸出].Columns[訂單年]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字元資料的比較選項。"
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行的排序次序。"
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\資料流程工作\排序 2.Outputs[排序輸出]"
+                  isSorted="true"
+                  name="排序輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\排序 2.Outputs[排序輸出].Columns[訂單號碼]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作\排序 2.Outputs[排序輸出].Columns[訂單號碼]"
+                      name="訂單號碼"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定與此輸出資料行相關聯之輸入資料行的譜系識別碼。"
+                          name="SortColumnId">#{Package\資料流程工作\訂貨主檔.Outputs[一般檔案來源輸出].Columns[訂單號碼]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\排序 2.Outputs[排序輸出].Columns[訂單日期]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作\排序 2.Outputs[排序輸出].Columns[訂單日期]"
+                      name="訂單日期">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定與此輸出資料行相關聯之輸入資料行的譜系識別碼。"
+                          name="SortColumnId">#{Package\資料流程工作\訂貨主檔.Outputs[一般檔案來源輸出].Columns[訂單日期]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\排序 2.Outputs[排序輸出].Columns[新訂單日期]"
+                      dataType="date"
+                      lineageId="Package\資料流程工作\排序 2.Outputs[排序輸出].Columns[新訂單日期]"
+                      name="新訂單日期">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定與此輸出資料行相關聯之輸入資料行的譜系識別碼。"
+                          name="SortColumnId">#{Package\資料流程工作\資料轉換.Outputs[資料轉換輸出].Columns[新訂單日期]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\排序 2.Outputs[排序輸出].Columns[訂單年]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\排序 2.Outputs[排序輸出].Columns[訂單年]"
+                      name="訂單年">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定與此輸出資料行相關聯之輸入資料行的譜系識別碼。"
+                          name="SortColumnId">#{Package\資料流程工作\衍生的資料行.Outputs[衍生的資料行輸出].Columns[訂單年]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\資料流程工作\排序 3"
+              componentClassID="Microsoft.Sort"
+              contactInfo="排序;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;1"
+              description="無法在來源排序資料時，依遞增或遞減順序排序輸入資料。例如，先依 [客戶識別碼] 排序銷售資料，然後再將它寫入一般檔案並且傳遞給其他部門。注意: 不建議對大型資料流程採用這種轉換。"
+              name="排序 3"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="指出排序轉換是否移除有重複排序值的資料列。"
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用於排序之執行緒最大數目。"
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\資料流程工作\排序 3.Inputs[排序輸入]"
+                  name="排序輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\資料流程工作\排序 3.Inputs[排序輸入].Columns[訂單號碼]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="訂單號碼"
+                      lineageId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].Columns[訂單號碼]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字元資料的比較選項。"
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行的排序次序。"
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作\排序 3.Inputs[排序輸入].Columns[產品編號]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="產品編號"
+                      lineageId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].Columns[產品編號]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字元資料的比較選項。"
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行的排序次序。"
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作\排序 3.Inputs[排序輸入].Columns[單價]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="單價"
+                      lineageId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].Columns[單價]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字元資料的比較選項。"
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行的排序次序。"
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作\排序 3.Inputs[排序輸入].Columns[數量]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="數量"
+                      lineageId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].Columns[數量]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字元資料的比較選項。"
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行的排序次序。"
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作\排序 3.Inputs[排序輸入].Columns[折扣]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="折扣"
+                      lineageId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].Columns[折扣]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字元資料的比較選項。"
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行的排序次序。"
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作\排序 3.Inputs[排序輸入].Columns[數量 的副本]"
+                      cachedDataType="i4"
+                      cachedName="數量 的副本"
+                      lineageId="Package\資料流程工作\資料轉換 1.Outputs[資料轉換輸出].Columns[數量 的副本]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字元資料的比較選項。"
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行的排序次序。"
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\資料流程工作\排序 3.Outputs[排序輸出]"
+                  isSorted="true"
+                  name="排序輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\排序 3.Outputs[排序輸出].Columns[訂單號碼]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作\排序 3.Outputs[排序輸出].Columns[訂單號碼]"
+                      name="訂單號碼"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定與此輸出資料行相關聯之輸入資料行的譜系識別碼。"
+                          name="SortColumnId">#{Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].Columns[訂單號碼]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\排序 3.Outputs[排序輸出].Columns[產品編號]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作\排序 3.Outputs[排序輸出].Columns[產品編號]"
+                      name="產品編號">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定與此輸出資料行相關聯之輸入資料行的譜系識別碼。"
+                          name="SortColumnId">#{Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].Columns[產品編號]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\排序 3.Outputs[排序輸出].Columns[單價]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作\排序 3.Outputs[排序輸出].Columns[單價]"
+                      name="單價">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定與此輸出資料行相關聯之輸入資料行的譜系識別碼。"
+                          name="SortColumnId">#{Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].Columns[單價]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\排序 3.Outputs[排序輸出].Columns[數量]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作\排序 3.Outputs[排序輸出].Columns[數量]"
+                      name="數量">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定與此輸出資料行相關聯之輸入資料行的譜系識別碼。"
+                          name="SortColumnId">#{Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].Columns[數量]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\排序 3.Outputs[排序輸出].Columns[折扣]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作\排序 3.Outputs[排序輸出].Columns[折扣]"
+                      name="折扣">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定與此輸出資料行相關聯之輸入資料行的譜系識別碼。"
+                          name="SortColumnId">#{Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].Columns[折扣]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\排序 3.Outputs[排序輸出].Columns[數量 的副本]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\排序 3.Outputs[排序輸出].Columns[數量 的副本]"
+                      name="數量 的副本">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定與此輸出資料行相關聯之輸入資料行的譜系識別碼。"
+                          name="SortColumnId">#{Package\資料流程工作\資料轉換 1.Outputs[資料轉換輸出].Columns[數量 的副本]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\資料流程工作\排序 4"
+              componentClassID="Microsoft.Sort"
+              contactInfo="排序;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;1"
+              description="無法在來源排序資料時，依遞增或遞減順序排序輸入資料。例如，先依 [客戶識別碼] 排序銷售資料，然後再將它寫入一般檔案並且傳遞給其他部門。注意: 不建議對大型資料流程採用這種轉換。"
+              name="排序 4"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="指出排序轉換是否移除有重複排序值的資料列。"
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用於排序之執行緒最大數目。"
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\資料流程工作\排序 4.Inputs[排序輸入]"
+                  name="排序輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\資料流程工作\排序 4.Inputs[排序輸入].Columns[訂單年]"
+                      cachedDataType="i4"
+                      cachedName="訂單年"
+                      lineageId="Package\資料流程工作\合併聯結 1.Outputs[合併聯結輸出].Columns[訂單年]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字元資料的比較選項。"
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行的排序次序。"
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作\排序 4.Inputs[排序輸入].Columns[產品編號]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="產品編號"
+                      lineageId="Package\資料流程工作\合併聯結 1.Outputs[合併聯結輸出].Columns[產品編號]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字元資料的比較選項。"
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行的排序次序。"
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作\排序 4.Inputs[排序輸入].Columns[數量 的副本]"
+                      cachedDataType="i4"
+                      cachedName="數量 的副本"
+                      lineageId="Package\資料流程工作\合併聯結 1.Outputs[合併聯結輸出].Columns[數量 的副本]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字元資料的比較選項。"
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行的排序次序。"
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\資料流程工作\排序 4.Outputs[排序輸出]"
+                  isSorted="true"
+                  name="排序輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\排序 4.Outputs[排序輸出].Columns[訂單年]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\排序 4.Outputs[排序輸出].Columns[訂單年]"
+                      name="訂單年">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定與此輸出資料行相關聯之輸入資料行的譜系識別碼。"
+                          name="SortColumnId">#{Package\資料流程工作\合併聯結 1.Outputs[合併聯結輸出].Columns[訂單年]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\排序 4.Outputs[排序輸出].Columns[產品編號]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作\排序 4.Outputs[排序輸出].Columns[產品編號]"
+                      name="產品編號"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定與此輸出資料行相關聯之輸入資料行的譜系識別碼。"
+                          name="SortColumnId">#{Package\資料流程工作\合併聯結 1.Outputs[合併聯結輸出].Columns[產品編號]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\排序 4.Outputs[排序輸出].Columns[數量 的副本]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\排序 4.Outputs[排序輸出].Columns[數量 的副本]"
+                      name="數量 的副本">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定與此輸出資料行相關聯之輸入資料行的譜系識別碼。"
+                          name="SortColumnId">#{Package\資料流程工作\合併聯結 1.Outputs[合併聯結輸出].Columns[數量 的副本]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\資料流程工作\排序 5"
+              componentClassID="Microsoft.Sort"
+              contactInfo="排序;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;1"
+              description="無法在來源排序資料時，依遞增或遞減順序排序輸入資料。例如，先依 [客戶識別碼] 排序銷售資料，然後再將它寫入一般檔案並且傳遞給其他部門。注意: 不建議對大型資料流程採用這種轉換。"
+              name="排序 5"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="指出排序轉換是否移除有重複排序值的資料列。"
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用於排序之執行緒最大數目。"
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\資料流程工作\排序 5.Inputs[排序輸入]"
+                  name="排序輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\資料流程工作\排序 5.Inputs[排序輸入].Columns[產品編號]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="產品編號"
+                      lineageId="Package\資料流程工作\合併聯結.Outputs[合併聯結輸出].Columns[產品編號]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字元資料的比較選項。"
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行的排序次序。"
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作\排序 5.Inputs[排序輸入].Columns[類別名稱]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="類別名稱"
+                      lineageId="Package\資料流程工作\合併聯結.Outputs[合併聯結輸出].Columns[類別名稱]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字元資料的比較選項。"
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行的排序次序。"
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\資料流程工作\排序 5.Outputs[排序輸出]"
+                  isSorted="true"
+                  name="排序輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\排序 5.Outputs[排序輸出].Columns[產品編號]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作\排序 5.Outputs[排序輸出].Columns[產品編號]"
+                      name="產品編號"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定與此輸出資料行相關聯之輸入資料行的譜系識別碼。"
+                          name="SortColumnId">#{Package\資料流程工作\合併聯結.Outputs[合併聯結輸出].Columns[產品編號]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\排序 5.Outputs[排序輸出].Columns[類別名稱]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作\排序 5.Outputs[排序輸出].Columns[類別名稱]"
+                      name="類別名稱">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定與此輸出資料行相關聯之輸入資料行的譜系識別碼。"
+                          name="SortColumnId">#{Package\資料流程工作\合併聯結.Outputs[合併聯結輸出].Columns[類別名稱]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\資料流程工作\產品資料"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="一般檔案來源;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;1"
+              description="一般檔案來源"
+              localeId="1028"
+              name="產品資料"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="指定零長度資料行是否當成 Null 處理。"
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含檔案名稱之輸出資料行的名稱。如果未指定名稱，將不會產生包含檔案名稱的輸出資料行。"
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\資料流程工作\產品資料.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[產品檔案連接]"
+                  connectionManagerRefId="Package.ConnectionManagers[產品檔案連接]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\資料流程工作\產品資料.Outputs[一般檔案來源輸出]"
+                  name="一般檔案來源輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\產品資料.Outputs[一般檔案來源輸出].Columns[產品編號]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作\產品資料.Outputs[一般檔案來源輸出].ExternalColumns[資料行 0]"
+                      length="50"
+                      lineageId="Package\資料流程工作\產品資料.Outputs[一般檔案來源輸出].Columns[產品編號]"
+                      name="產品編號"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\產品資料.Outputs[一般檔案來源輸出].Columns[產品名]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作\產品資料.Outputs[一般檔案來源輸出].ExternalColumns[資料行 1]"
+                      length="50"
+                      lineageId="Package\資料流程工作\產品資料.Outputs[一般檔案來源輸出].Columns[產品名]"
+                      name="產品名"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\產品資料.Outputs[一般檔案來源輸出].Columns[類別編號]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作\產品資料.Outputs[一般檔案來源輸出].ExternalColumns[資料行 2]"
+                      length="50"
+                      lineageId="Package\資料流程工作\產品資料.Outputs[一般檔案來源輸出].Columns[類別編號]"
+                      name="類別編號"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\產品資料.Outputs[一般檔案來源輸出].ExternalColumns[資料行 0]"
+                      dataType="wstr"
+                      length="50"
+                      name="資料行 0" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\產品資料.Outputs[一般檔案來源輸出].ExternalColumns[資料行 1]"
+                      dataType="wstr"
+                      length="50"
+                      name="資料行 1" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\產品資料.Outputs[一般檔案來源輸出].ExternalColumns[資料行 2]"
+                      dataType="wstr"
+                      length="50"
+                      name="資料行 2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\資料流程工作\產品資料.Outputs[一般檔案來源錯誤輸出]"
+                  isErrorOut="true"
+                  name="一般檔案來源錯誤輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\產品資料.Outputs[一般檔案來源錯誤輸出].Columns[一般檔案來源錯誤輸出資料行]"
+                      dataType="nText"
+                      description="一般檔案來源錯誤輸出資料行"
+                      lineageId="Package\資料流程工作\產品資料.Outputs[一般檔案來源錯誤輸出].Columns[一般檔案來源錯誤輸出資料行]"
+                      name="一般檔案來源錯誤輸出資料行" />
+                    <outputColumn
+                      refId="Package\資料流程工作\產品資料.Outputs[一般檔案來源錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\產品資料.Outputs[一般檔案來源錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\資料流程工作\產品資料.Outputs[一般檔案來源錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\產品資料.Outputs[一般檔案來源錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\資料流程工作\產品類別"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="一般檔案來源;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;1"
+              description="一般檔案來源"
+              localeId="1028"
+              name="產品類別"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="指定零長度資料行是否當成 Null 處理。"
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含檔案名稱之輸出資料行的名稱。如果未指定名稱，將不會產生包含檔案名稱的輸出資料行。"
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\資料流程工作\產品類別.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[產品類別檔案連接]"
+                  connectionManagerRefId="Package.ConnectionManagers[產品類別檔案連接]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\資料流程工作\產品類別.Outputs[一般檔案來源輸出]"
+                  name="一般檔案來源輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\產品類別.Outputs[一般檔案來源輸出].Columns[類別編號]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作\產品類別.Outputs[一般檔案來源輸出].ExternalColumns[資料行 0]"
+                      length="50"
+                      lineageId="Package\資料流程工作\產品類別.Outputs[一般檔案來源輸出].Columns[類別編號]"
+                      name="類別編號"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\產品類別.Outputs[一般檔案來源輸出].Columns[類別名稱]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作\產品類別.Outputs[一般檔案來源輸出].ExternalColumns[資料行 1]"
+                      length="50"
+                      lineageId="Package\資料流程工作\產品類別.Outputs[一般檔案來源輸出].Columns[類別名稱]"
+                      name="類別名稱"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\產品類別.Outputs[一般檔案來源輸出].ExternalColumns[資料行 0]"
+                      dataType="wstr"
+                      length="50"
+                      name="資料行 0" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\產品類別.Outputs[一般檔案來源輸出].ExternalColumns[資料行 1]"
+                      dataType="wstr"
+                      length="50"
+                      name="資料行 1" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\資料流程工作\產品類別.Outputs[一般檔案來源錯誤輸出]"
+                  isErrorOut="true"
+                  name="一般檔案來源錯誤輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\產品類別.Outputs[一般檔案來源錯誤輸出].Columns[一般檔案來源錯誤輸出資料行]"
+                      dataType="nText"
+                      description="一般檔案來源錯誤輸出資料行"
+                      lineageId="Package\資料流程工作\產品類別.Outputs[一般檔案來源錯誤輸出].Columns[一般檔案來源錯誤輸出資料行]"
+                      name="一般檔案來源錯誤輸出資料行" />
+                    <outputColumn
+                      refId="Package\資料流程工作\產品類別.Outputs[一般檔案來源錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\產品類別.Outputs[一般檔案來源錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\資料流程工作\產品類別.Outputs[一般檔案來源錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\產品類別.Outputs[一般檔案來源錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\資料流程工作\衍生的資料行"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="衍生的資料行;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;0"
+              description="透過套用運算式到轉換輸入資料行來建立新資料行值。建立新資料行或覆寫現有資料行。例如，將 [名字] 和 [姓氏] 資料行的值串連成 [全名] 資料行。"
+              name="衍生的資料行"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\資料流程工作\衍生的資料行.Inputs[衍生的資料行輸入]"
+                  description="輸入至衍生的資料行轉換"
+                  name="衍生的資料行輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\資料流程工作\衍生的資料行.Inputs[衍生的資料行輸入].Columns[新訂單日期]"
+                      cachedDataType="date"
+                      cachedName="新訂單日期"
+                      lineageId="Package\資料流程工作\資料轉換.Outputs[資料轉換輸出].Columns[新訂單日期]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\資料流程工作\衍生的資料行.Outputs[衍生的資料行輸出]"
+                  description="衍生的資料行轉換的預設輸出"
+                  exclusionGroup="1"
+                  name="衍生的資料行輸出"
+                  synchronousInputId="Package\資料流程工作\衍生的資料行.Inputs[衍生的資料行輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\衍生的資料行.Outputs[衍生的資料行輸出].Columns[訂單年]"
+                      dataType="i4"
+                      errorOrTruncationOperation="計算"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\資料流程工作\衍生的資料行.Outputs[衍生的資料行輸出].Columns[訂單年]"
+                      name="訂單年"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行運算式"
+                          name="Expression">[YEAR](#{Package\資料流程工作\資料轉換.Outputs[資料轉換輸出].Columns[新訂單日期]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行易記運算式"
+                          expressionType="Notify"
+                          name="FriendlyExpression">YEAR([新訂單日期])</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\資料流程工作\衍生的資料行.Outputs[衍生的資料行錯誤輸出]"
+                  description="衍生的資料行轉換的錯誤輸出"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="衍生的資料行錯誤輸出"
+                  synchronousInputId="Package\資料流程工作\衍生的資料行.Inputs[衍生的資料行輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\衍生的資料行.Outputs[衍生的資料行錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\衍生的資料行.Outputs[衍生的資料行錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\資料流程工作\衍生的資料行.Outputs[衍生的資料行錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\衍生的資料行.Outputs[衍生的資料行錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\資料流程工作\訂貨主檔"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="一般檔案來源;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;1"
+              description="一般檔案來源"
+              localeId="1028"
+              name="訂貨主檔"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="指定零長度資料行是否當成 Null 處理。"
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含檔案名稱之輸出資料行的名稱。如果未指定名稱，將不會產生包含檔案名稱的輸出資料行。"
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\資料流程工作\訂貨主檔.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[訂貨主檔檔案連接]"
+                  connectionManagerRefId="Package.ConnectionManagers[訂貨主檔檔案連接]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\資料流程工作\訂貨主檔.Outputs[一般檔案來源輸出]"
+                  name="一般檔案來源輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\訂貨主檔.Outputs[一般檔案來源輸出].Columns[訂單號碼]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作\訂貨主檔.Outputs[一般檔案來源輸出].ExternalColumns[資料行 0]"
+                      length="50"
+                      lineageId="Package\資料流程工作\訂貨主檔.Outputs[一般檔案來源輸出].Columns[訂單號碼]"
+                      name="訂單號碼"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\訂貨主檔.Outputs[一般檔案來源輸出].Columns[訂單日期]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作\訂貨主檔.Outputs[一般檔案來源輸出].ExternalColumns[資料行 1]"
+                      length="50"
+                      lineageId="Package\資料流程工作\訂貨主檔.Outputs[一般檔案來源輸出].Columns[訂單日期]"
+                      name="訂單日期"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\訂貨主檔.Outputs[一般檔案來源輸出].ExternalColumns[資料行 0]"
+                      dataType="wstr"
+                      length="50"
+                      name="資料行 0" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\訂貨主檔.Outputs[一般檔案來源輸出].ExternalColumns[資料行 1]"
+                      dataType="wstr"
+                      length="50"
+                      name="資料行 1" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\資料流程工作\訂貨主檔.Outputs[一般檔案來源錯誤輸出]"
+                  isErrorOut="true"
+                  name="一般檔案來源錯誤輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\訂貨主檔.Outputs[一般檔案來源錯誤輸出].Columns[一般檔案來源錯誤輸出資料行]"
+                      dataType="nText"
+                      description="一般檔案來源錯誤輸出資料行"
+                      lineageId="Package\資料流程工作\訂貨主檔.Outputs[一般檔案來源錯誤輸出].Columns[一般檔案來源錯誤輸出資料行]"
+                      name="一般檔案來源錯誤輸出資料行" />
+                    <outputColumn
+                      refId="Package\資料流程工作\訂貨主檔.Outputs[一般檔案來源錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\訂貨主檔.Outputs[一般檔案來源錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\資料流程工作\訂貨主檔.Outputs[一般檔案來源錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\訂貨主檔.Outputs[一般檔案來源錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\資料流程工作\訂貨明細"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="一般檔案來源;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;1"
+              description="一般檔案來源"
+              localeId="1028"
+              name="訂貨明細"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="指定零長度資料行是否當成 Null 處理。"
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含檔案名稱之輸出資料行的名稱。如果未指定名稱，將不會產生包含檔案名稱的輸出資料行。"
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\資料流程工作\訂貨明細.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[訂貨明細檔案連接]"
+                  connectionManagerRefId="Package.ConnectionManagers[訂貨明細檔案連接]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出]"
+                  name="一般檔案來源輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].Columns[訂單號碼]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].ExternalColumns[資料行 0]"
+                      length="50"
+                      lineageId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].Columns[訂單號碼]"
+                      name="訂單號碼"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].Columns[產品編號]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].ExternalColumns[資料行 1]"
+                      length="50"
+                      lineageId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].Columns[產品編號]"
+                      name="產品編號"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].Columns[單價]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].ExternalColumns[資料行 2]"
+                      length="50"
+                      lineageId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].Columns[單價]"
+                      name="單價"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].Columns[數量]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].ExternalColumns[資料行 3]"
+                      length="50"
+                      lineageId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].Columns[數量]"
+                      name="數量"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].Columns[折扣]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].ExternalColumns[資料行 4]"
+                      length="50"
+                      lineageId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].Columns[折扣]"
+                      name="折扣"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].ExternalColumns[資料行 0]"
+                      dataType="wstr"
+                      length="50"
+                      name="資料行 0" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].ExternalColumns[資料行 1]"
+                      dataType="wstr"
+                      length="50"
+                      name="資料行 1" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].ExternalColumns[資料行 2]"
+                      dataType="wstr"
+                      length="50"
+                      name="資料行 2" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].ExternalColumns[資料行 3]"
+                      dataType="wstr"
+                      length="50"
+                      name="資料行 3" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].ExternalColumns[資料行 4]"
+                      dataType="wstr"
+                      length="50"
+                      name="資料行 4" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源錯誤輸出]"
+                  isErrorOut="true"
+                  name="一般檔案來源錯誤輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源錯誤輸出].Columns[一般檔案來源錯誤輸出資料行]"
+                      dataType="nText"
+                      description="一般檔案來源錯誤輸出資料行"
+                      lineageId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源錯誤輸出].Columns[一般檔案來源錯誤輸出資料行]"
+                      name="一般檔案來源錯誤輸出資料行" />
+                    <outputColumn
+                      refId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\資料流程工作\資料轉換"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="資料轉換;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;0"
+              description="資料轉換"
+              name="資料轉換"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\資料流程工作\資料轉換.Inputs[資料轉換輸入]"
+                  name="資料轉換輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\資料流程工作\資料轉換.Inputs[資料轉換輸入].Columns[訂單日期]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="訂單日期"
+                      lineageId="Package\資料流程工作\訂貨主檔.Outputs[一般檔案來源輸出].Columns[訂單日期]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\資料流程工作\資料轉換.Outputs[資料轉換輸出]"
+                  exclusionGroup="1"
+                  name="資料轉換輸出"
+                  synchronousInputId="Package\資料流程工作\資料轉換.Inputs[資料轉換輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\資料轉換.Outputs[資料轉換輸出].Columns[新訂單日期]"
+                      dataType="date"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\資料流程工作\資料轉換.Outputs[資料轉換輸出].Columns[新訂單日期]"
+                      name="新訂單日期"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\資料流程工作\訂貨主檔.Outputs[一般檔案來源輸出].Columns[訂單日期]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\資料流程工作\資料轉換.Outputs[資料轉換錯誤輸出]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="資料轉換錯誤輸出"
+                  synchronousInputId="Package\資料流程工作\資料轉換.Inputs[資料轉換輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\資料轉換.Outputs[資料轉換錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\資料轉換.Outputs[資料轉換錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\資料流程工作\資料轉換.Outputs[資料轉換錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\資料轉換.Outputs[資料轉換錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\資料流程工作\資料轉換 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="資料轉換;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;0"
+              description="資料轉換"
+              name="資料轉換 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\資料流程工作\資料轉換 1.Inputs[資料轉換輸入]"
+                  name="資料轉換輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\資料流程工作\資料轉換 1.Inputs[資料轉換輸入].Columns[數量]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="數量"
+                      lineageId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].Columns[數量]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\資料流程工作\資料轉換 1.Outputs[資料轉換輸出]"
+                  exclusionGroup="1"
+                  name="資料轉換輸出"
+                  synchronousInputId="Package\資料流程工作\資料轉換 1.Inputs[資料轉換輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\資料轉換 1.Outputs[資料轉換輸出].Columns[數量 的副本]"
+                      dataType="i4"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\資料流程工作\資料轉換 1.Outputs[資料轉換輸出].Columns[數量 的副本]"
+                      name="數量 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出].Columns[數量]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\資料流程工作\資料轉換 1.Outputs[資料轉換錯誤輸出]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="資料轉換錯誤輸出"
+                  synchronousInputId="Package\資料流程工作\資料轉換 1.Inputs[資料轉換輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\資料轉換 1.Outputs[資料轉換錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\資料轉換 1.Outputs[資料轉換錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\資料流程工作\資料轉換 1.Outputs[資料轉換錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\資料轉換 1.Outputs[資料轉換錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\資料流程工作.Paths[一般檔案來源輸出]"
+              endId="Package\資料流程工作\排序.Inputs[排序輸入]"
+              name="一般檔案來源輸出"
+              startId="Package\資料流程工作\產品資料.Outputs[一般檔案來源輸出]" />
+            <path
+              refId="Package\資料流程工作.Paths[一般檔案來源輸出1]"
+              endId="Package\資料流程工作\排序 1.Inputs[排序輸入]"
+              name="一般檔案來源輸出"
+              startId="Package\資料流程工作\產品類別.Outputs[一般檔案來源輸出]" />
+            <path
+              refId="Package\資料流程工作.Paths[一般檔案來源輸出2]"
+              endId="Package\資料流程工作\資料轉換.Inputs[資料轉換輸入]"
+              name="一般檔案來源輸出"
+              startId="Package\資料流程工作\訂貨主檔.Outputs[一般檔案來源輸出]" />
+            <path
+              refId="Package\資料流程工作.Paths[一般檔案來源輸出3]"
+              endId="Package\資料流程工作\資料轉換 1.Inputs[資料轉換輸入]"
+              name="一般檔案來源輸出"
+              startId="Package\資料流程工作\訂貨明細.Outputs[一般檔案來源輸出]" />
+            <path
+              refId="Package\資料流程工作.Paths[合併聯結輸出]"
+              endId="Package\資料流程工作\排序 5.Inputs[排序輸入]"
+              name="合併聯結輸出"
+              startId="Package\資料流程工作\合併聯結.Outputs[合併聯結輸出]" />
+            <path
+              refId="Package\資料流程工作.Paths[合併聯結輸出1]"
+              endId="Package\資料流程工作\排序 4.Inputs[排序輸入]"
+              name="合併聯結輸出"
+              startId="Package\資料流程工作\合併聯結 1.Outputs[合併聯結輸出]" />
+            <path
+              refId="Package\資料流程工作.Paths[合併聯結輸出2]"
+              endId="Package\資料流程工作\彙總.Inputs[彙總輸入 1]"
+              name="合併聯結輸出"
+              startId="Package\資料流程工作\合併聯結 2.Outputs[合併聯結輸出]" />
+            <path
+              refId="Package\資料流程工作.Paths[彙總輸出 1]"
+              endId="Package\資料流程工作\一般檔案目的地.Inputs[一般檔案目的地輸入]"
+              name="彙總輸出 1"
+              startId="Package\資料流程工作\彙總.Outputs[彙總輸出 1]" />
+            <path
+              refId="Package\資料流程工作.Paths[排序輸出5]"
+              endId="Package\資料流程工作\合併聯結.Inputs[合併聯結右方輸入]"
+              name="排序輸出"
+              startId="Package\資料流程工作\排序 1.Outputs[排序輸出]" />
+            <path
+              refId="Package\資料流程工作.Paths[排序輸出4]"
+              endId="Package\資料流程工作\合併聯結 1.Inputs[合併聯結右方輸入]"
+              name="排序輸出"
+              startId="Package\資料流程工作\排序 3.Outputs[排序輸出]" />
+            <path
+              refId="Package\資料流程工作.Paths[排序輸出3]"
+              endId="Package\資料流程工作\合併聯結 1.Inputs[合併聯結左方輸入]"
+              name="排序輸出"
+              startId="Package\資料流程工作\排序 2.Outputs[排序輸出]" />
+            <path
+              refId="Package\資料流程工作.Paths[排序輸出]"
+              endId="Package\資料流程工作\合併聯結 2.Inputs[合併聯結右方輸入]"
+              name="排序輸出"
+              startId="Package\資料流程工作\排序 5.Outputs[排序輸出]" />
+            <path
+              refId="Package\資料流程工作.Paths[排序輸出1]"
+              endId="Package\資料流程工作\合併聯結 2.Inputs[合併聯結左方輸入]"
+              name="排序輸出"
+              startId="Package\資料流程工作\排序 4.Outputs[排序輸出]" />
+            <path
+              refId="Package\資料流程工作.Paths[排序輸出2]"
+              endId="Package\資料流程工作\合併聯結.Inputs[合併聯結左方輸入]"
+              name="排序輸出"
+              startId="Package\資料流程工作\排序.Outputs[排序輸出]" />
+            <path
+              refId="Package\資料流程工作.Paths[衍生的資料行輸出]"
+              endId="Package\資料流程工作\排序 2.Inputs[排序輸入]"
+              name="衍生的資料行輸出"
+              startId="Package\資料流程工作\衍生的資料行.Outputs[衍生的資料行輸出]" />
+            <path
+              refId="Package\資料流程工作.Paths[資料轉換輸出]"
+              endId="Package\資料流程工作\衍生的資料行.Inputs[衍生的資料行輸入]"
+              name="資料轉換輸出"
+              startId="Package\資料流程工作\資料轉換.Outputs[資料轉換輸出]" />
+            <path
+              refId="Package\資料流程工作.Paths[資料轉換輸出1]"
+              endId="Package\資料流程工作\排序 3.Inputs[排序輸入]"
+              name="資料轉換輸出"
+              startId="Package\資料流程工作\資料轉換 1.Outputs[資料轉換輸出]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--此 CDATA 區段包含封裝的配置資訊。此區段包括諸如 (x,y) 座標、寬度和長度等資訊。-->
+<!--如果您手動編輯此區段但出錯，則可加以刪除。 -->
+<!--封裝仍可正常載入，但先前的配置資訊會遺失，而設計師將在設計介面上自動重新排列元素。-->
+<Objects
+  Version="8">
+  <!--下面每個節點將包含不會影響執行階段行為的屬性。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\資料流程工作"
+          TopLeft="279.9999888738,88.2142812074449" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\資料流程工作">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="137,42"
+          Id="Package\資料流程工作\資料轉換 1"
+          TopLeft="245.833323564795,155.071420648877" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\資料流程工作\訂貨明細"
+          TopLeft="251.666656666332,73.3571391093489" />
+        <NodeLayout
+          Size="103,42"
+          Id="Package\資料流程工作\彙總"
+          TopLeft="392.708317728507,749.821390263282" />
+        <NodeLayout
+          Size="137,42"
+          Id="Package\資料流程工作\合併聯結 1"
+          TopLeft="159.166660341952,455.928548135321" />
+        <NodeLayout
+          Size="113,42"
+          Id="Package\資料流程工作\排序 5"
+          TopLeft="588.541643280123,567.589256716323" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\資料流程工作\產品類別"
+          TopLeft="659.999973773957,73.3571391093489" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\資料流程工作\資料轉換"
+          TopLeft="65.8333307173518,156.928563411139" />
+        <NodeLayout
+          Size="103,42"
+          Id="Package\資料流程工作\排序"
+          TopLeft="528.333312339254,158.785706173401" />
+        <NodeLayout
+          Size="113,42"
+          Id="Package\資料流程工作\排序 2"
+          TopLeft="69.99999721845,318.499983727933" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\資料流程工作\衍生的資料行"
+          TopLeft="57.4999977151554,246.999987380846" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\資料流程工作\訂貨主檔"
+          TopLeft="65.8333307173518,73.3571391093489" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\資料流程工作\合併聯結"
+          TopLeft="590.833309855727,442.928548799487" />
+        <NodeLayout
+          Size="137,42"
+          Id="Package\資料流程工作\合併聯結 2"
+          TopLeft="372.91665184829,663.928537508665" />
+        <NodeLayout
+          Size="113,42"
+          Id="Package\資料流程工作\排序 3"
+          TopLeft="258.333323068089,311.999984060016" />
+        <NodeLayout
+          Size="113,42"
+          Id="Package\資料流程工作\排序 4"
+          TopLeft="193.749992301067,565.267828263496" />
+        <NodeLayout
+          Size="113,42"
+          Id="Package\資料流程工作\排序 1"
+          TopLeft="669.999973376593,161.571420316794" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\資料流程工作\產品資料"
+          TopLeft="511.666646334861,73.3571391093489" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\資料流程工作\一般檔案目的地"
+          TopLeft="362.499985595545,839.196387357556" />
+        <EdgeLayout
+          Id="Package\資料流程工作.Paths[資料轉換輸出1]"
+          TopLeft="314.583323316442,197.071420648877">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,114.928563411139"
+              Start="0,0"
+              End="0,107.428563411139">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,107.428563411139" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\資料流程工作.Paths[資料轉換輸出]"
+          TopLeft="131.166664216254,198.928563411139">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48.071423969707"
+              Start="0,0"
+              End="0,40.571423969707">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.571423969707" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\資料流程工作.Paths[衍生的資料行輸出]"
+          TopLeft="129.749997466803,288.999987380846">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.4999963470869"
+              Start="0,0"
+              End="0,21.9999963470869">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.9999963470869" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\資料流程工作.Paths[排序輸出]"
+          TopLeft="645.041643280123,609.589256716323">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-182.124991431833,54.3392807923414"
+              Start="0,0"
+              End="-182.124991431833,46.8392807923414">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.2271925045488" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.2271925045488"
+                    Point2="0,32.2271925045488"
+                    Point3="-4,32.2271925045488" />
+                  <mssgle:LineSegment
+                    End="-178.124991431833,32.2271925045488" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-178.124991431833,32.2271925045488"
+                    Point2="-182.124991431833,32.2271925045488"
+                    Point3="-182.124991431833,36.2271925045488" />
+                  <mssgle:LineSegment
+                    End="-182.124991431833,46.8392807923414" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\資料流程工作.Paths[排序輸出1]"
+          TopLeft="250.249992301067,607.267828263496">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="191.166659547223,56.6607092451687"
+              Start="0,0"
+              End="191.166659547223,49.1607092451687">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.3303546225844" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.3303546225844"
+                    Point2="0,28.3303546225844"
+                    Point3="4,28.3303546225844" />
+                  <mssgle:LineSegment
+                    End="187.166659547223,28.3303546225844" />
+                  <mssgle:CubicBezierSegment
+                    Point1="187.166659547223,28.3303546225844"
+                    Point2="191.166659547223,28.3303546225844"
+                    Point3="191.166659547223,32.3303546225844" />
+                  <mssgle:LineSegment
+                    End="191.166659547223,49.1607092451687" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\資料流程工作.Paths[排序輸出2]"
+          TopLeft="579.833312339254,200.785706173401">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="54.66666418314,242.142842626086"
+              Start="0,0"
+              End="54.66666418314,234.642842626086">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,139.478107372533" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,139.478107372533"
+                    Point2="0,143.478107372533"
+                    Point3="4,143.478107372533" />
+                  <mssgle:LineSegment
+                    End="50.66666418314,143.478107372533" />
+                  <mssgle:CubicBezierSegment
+                    Point1="50.66666418314,143.478107372533"
+                    Point2="54.66666418314,143.478107372533"
+                    Point3="54.66666418314,147.478107372533" />
+                  <mssgle:LineSegment
+                    End="54.66666418314,234.642842626086" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\資料流程工作.Paths[排序輸出5]"
+          TopLeft="726.499973376593,203.571420316794">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-52.3333301875327,239.357128482693"
+              Start="0,0"
+              End="-52.3333301875327,231.857128482693">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,137.827474264239" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,137.827474264239"
+                    Point2="0,141.827474264239"
+                    Point3="-4,141.827474264239" />
+                  <mssgle:LineSegment
+                    End="-48.3333301875327,141.827474264239" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-48.3333301875327,141.827474264239"
+                    Point2="-52.3333301875327,141.827474264239"
+                    Point3="-52.3333301875327,145.827474264239" />
+                  <mssgle:LineSegment
+                    End="-52.3333301875327,231.857128482693" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\資料流程工作.Paths[排序輸出4]"
+          TopLeft="314.833323068089,353.999984060016">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-65.6666627261375,101.928564075305"
+              Start="0,0"
+              End="-65.6666627261375,94.428564075305">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.4511397329731" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,56.4511397329731"
+                    Point2="0,60.4511397329731"
+                    Point3="-4,60.4511397329731" />
+                  <mssgle:LineSegment
+                    End="-61.6666627261375,60.4511397329731" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-61.6666627261375,60.4511397329731"
+                    Point2="-65.6666627261375,60.4511397329731"
+                    Point3="-65.6666627261375,64.4511397329731" />
+                  <mssgle:LineSegment
+                    End="-65.6666627261375,94.428564075305" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\資料流程工作.Paths[排序輸出3]"
+          TopLeft="126.49999721845,360.499983727933">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="101.166663123502,95.428564407388"
+              Start="0,0"
+              End="101.166663123502,87.928564407388">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.714282203694" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.714282203694"
+                    Point2="0,47.714282203694"
+                    Point3="4,47.714282203694" />
+                  <mssgle:LineSegment
+                    End="97.1666631235018,47.714282203694" />
+                  <mssgle:CubicBezierSegment
+                    Point1="97.1666631235018,47.714282203694"
+                    Point2="101.166663123502,47.714282203694"
+                    Point3="101.166663123502,51.714282203694" />
+                  <mssgle:LineSegment
+                    End="101.166663123502,87.928564407388" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\資料流程工作.Paths[彙總輸出 1]"
+          TopLeft="444.104151662026,791.821390263282">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47.3749970942738"
+              Start="0,0"
+              End="0,39.8749970942738">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.8749970942738" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\資料流程工作.Paths[合併聯結輸出2]"
+          TopLeft="442.812484788398,705.928537508665">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.8928527546171"
+              Start="0,0"
+              End="0,36.3928527546171">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.3928527546171" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\資料流程工作.Paths[合併聯結輸出1]"
+          TopLeft="227.666660341952,497.928548135321">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="22.5833319591152,67.3392801281752"
+              Start="0,0"
+              End="22.5833319591152,59.8392801281752">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.6696400640876" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.6696400640876"
+                    Point2="0,33.6696400640876"
+                    Point3="4,33.6696400640876" />
+                  <mssgle:LineSegment
+                    End="18.5833319591152,33.6696400640876" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.5833319591152,33.6696400640876"
+                    Point2="22.5833319591152,33.6696400640876"
+                    Point3="22.5833319591152,37.6696400640876" />
+                  <mssgle:LineSegment
+                    End="22.5833319591152,59.8392801281752" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\資料流程工作.Paths[合併聯結輸出]"
+          TopLeft="654.333309855727,484.928548799487">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.29166657560415,82.6607079168367"
+              Start="0,0"
+              End="-9.29166657560415,75.1607079168367">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.3303539584184" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.3303539584184"
+                    Point2="0,41.3303539584184"
+                    Point3="-4,41.3303539584184" />
+                  <mssgle:LineSegment
+                    End="-5.29166657560415,41.3303539584184" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.29166657560415,41.3303539584184"
+                    Point2="-9.29166657560415,41.3303539584184"
+                    Point3="-9.29166657560415,45.3303539584184" />
+                  <mssgle:LineSegment
+                    End="-9.29166657560415,75.1607079168367" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\資料流程工作.Paths[一般檔案來源輸出3]"
+          TopLeft="314.749990115563,115.357139109349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.714281539528"
+              Start="0,0"
+              End="0,32.214281539528">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.214281539528" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\資料流程工作.Paths[一般檔案來源輸出2]"
+          TopLeft="129.333330717352,115.357139109349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.57142430179"
+              Start="0,0"
+              End="0,34.07142430179">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.07142430179" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\資料流程工作.Paths[一般檔案來源輸出1]"
+          TopLeft="724.999973575275,115.357139109349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.214281207445"
+              Start="0,0"
+              End="0,38.714281207445">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.714281207445" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\資料流程工作.Paths[一般檔案來源輸出]"
+          TopLeft="577.499979337057,115.357139109349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.4285670640519"
+              Start="0,0"
+              End="0,35.9285670640519">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.9285670640519" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

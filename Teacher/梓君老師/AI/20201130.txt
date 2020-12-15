@@ -1,0 +1,133 @@
+CREATE DATABASE Pitcher;
+GO
+USE Pitcher;
+GO
+
+SELECT * FROM Pitcher;
+DELETE FROM Pitcher WHERE [IP]=0;
+
+DECLARE @ip_max FLOAT,@ip_min FLOAT,@so_max FLOAT,@so_min FLOAT
+	,@go_max FLOAT,@go_min FLOAT,@ao_max FLOAT,@ao_min FLOAT;
+SELECT @ip_max=MAX([IP]),@ip_min=MIN([IP])
+	, @so_max=MAX([SO]),@so_min=MIN([SO])
+	, @go_max=MAX([GO]),@go_min=MIN([GO])
+	, @ao_max=MAX([AO]),@ao_min=MIN([AO]) FROM Pitcher;
+SELECT [ERA], [WHIP]
+	, ([IP]-@ip_min)/(@ip_max-@ip_min) AS [ip_new]
+	, (1.0*([H]+[HR])*9)/[IP] AS [H9]
+	, (1.0*[BB]+[IBB]+[HBP]*9)/[IP] AS [B9]
+	, ([SO]-@so_min)/(@so_max-@so_min) AS [so_new]
+	, ([GO]-@go_min)/(@go_max-@go_min) AS [go_new]
+	, ([AO]-@ao_min)/(@ao_max-@ao_min) AS [ao_new]
+FROM Pitcher;
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DECLARE @ip_max FLOAT,@ip_min FLOAT,@so_max FLOAT,@so_min FLOAT
+	,@go_max FLOAT,@go_min FLOAT,@ao_max FLOAT,@ao_min FLOAT;
+SELECT @ip_max=MAX([IP]),@ip_min=MIN([IP])
+	, @so_max=MAX([SO]),@so_min=MIN([SO])
+	, @go_max=MAX([GO]),@go_min=MIN([GO])
+	, @ao_max=MAX([AO]),@ao_min=MIN([AO]) FROM Pitcher;
+SELECT [ERA], [WHIP]
+	, ([IP]-@ip_min)/(@ip_max-@ip_min) AS [ip_new]
+	, (1.0*([H]+[HR])*9)/[IP] AS [H9]
+	, (1.0*[BB]+[IBB]+[HBP]*9)/[IP] AS [B9]
+	, ([SO]-@so_min)/(@so_max-@so_min) AS [so_new]
+	, ([GO]-@go_min)/(@go_max-@go_min) AS [go_new]
+	, ([AO]-@ao_min)/(@ao_max-@ao_min) AS [ao_new]
+INTO [NewPitcher]
+FROM Pitcher;
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--DROP TABLE 模型表
+CREATE TABLE 模型表
+(
+    編號 INT IDENTITY(1,1) PRIMARY KEY,
+	模型名稱 NVARCHAR(20),
+	模型 VARBINARY(MAX)
+)
+GO
+
+ALTER PROC #TempPP @sqlQuery NVARCHAR(MAX),@trainedModel VARBINARY(MAX) OUTPUT
+AS
+	EXECUTE sp_execute_external_script @language = N'R',  
+	@script = N'   
+		inputData<-data.frame(InputDataSet)	
+		cs<-colnames(inputData)				
+		frm<-paste(cs[1], paste(cs[2:length(cs)], collapse="+"), sep="~")			
+		model <- rxLinMod(frm, inputData)
+		print(model)
+		trainedModel<-rxSerializeModel(model,realtimeScoringOnly=TRUE)
+	'	
+	,@input_data_1=@sqlQuery
+	,@params=N'@trainedModel VARBINARY(MAX) OUTPUT'
+	,@trainedModel=@trainedModel OUTPUT
+;
+GO
+
+/*
+DECLARE @ss NVARCHAR(1024)=N'SELECT * FROM NewPitcher';
+DECLARE @mm VARBINARY(MAX);
+EXEC #TempPP @ss,@mm OUTPUT;
+SELECT @mm
+*/
+
+
+
+DECLARE @ss NVARCHAR(1024)=N'SELECT * FROM NewPitcher';
+DECLARE @mm VARBINARY(MAX);
+EXEC #TempPP @ss,@mm OUTPUT;
+INSERT INTO 模型表(模型名稱,模型) VALUES(N'線性迴歸(即時)',@mm);
+
+SELECT * FROM 模型表
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ALTER PROC #TempPP @sqlQuery NVARCHAR(MAX),@trainedModel VARBINARY(MAX) OUTPUT
+AS
+	EXECUTE sp_execute_external_script @language = N'R',  
+	@script = N'   
+		inputData<-data.frame(InputDataSet)	
+		cs<-colnames(inputData)				
+		frm<-paste(cs[1], paste(cs[2:length(cs)], collapse="+"), sep="~")			
+		model <- rxFastTrees(frm, inputData,type = c("regression"))		
+		trainedModel<-rxSerializeModel(model,realtimeScoringOnly=TRUE)
+	'	
+	,@input_data_1=@sqlQuery
+	,@params=N'@trainedModel VARBINARY(MAX) OUTPUT'
+	,@trainedModel=@trainedModel OUTPUT
+;
+GO
+
+
+DECLARE @ss NVARCHAR(1024)=N'SELECT * FROM NewPitcher';
+DECLARE @mm VARBINARY(MAX);
+EXEC #TempPP @ss,@mm OUTPUT;
+INSERT INTO 模型表(模型名稱,模型) VALUES(N'快速迴歸樹(即時)',@mm);
+
+SELECT * FROM 模型表
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DECLARE @sql_query NVARCHAR(1024)=N'SELECT * FROM NewPitcher';
+DECLARE @mm VARBINARY(MAX);
+SELECT @mm=模型 FROM 模型表 WHERE 編號=3;
+
+EXECUTE sp_execute_external_script @language = N'R',  
+	@script = N'   
+		testData<-data.frame(InputDataSet)				#傳入測試組
+		trainedModel<-rxUnserializeModel(inputModel)	#傳入訓練過的模型
+		result<-rxPredict(trainedModel, data=testData,extraVarsToWrite=c("ERA"))
+		OutputDataSet<-result;	
+	'
+	,@input_data_1=@sql_query
+	,@params=N'@inputModel VARBINARY(MAX)'
+	,@inputModel=@mm
+;
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+

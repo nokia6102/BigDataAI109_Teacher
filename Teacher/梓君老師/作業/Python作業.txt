@@ -1,0 +1,15 @@
+
+1. 身分證字號檢查
+https://ohmygodpc.pixnet.net/blog/post/22055180
+https://sasimiyu.pixnet.net/blog/post/39451810
+
+
+2. 大樂透開獎(7個不重覆號)
+2-1 重抽法
+2-2 實際開法
+
+3. 選擇 / 插入 / 泡沫 排序法
+3-1  快速排序法
+
+4-1
+費式數列，是求出第N項的值！

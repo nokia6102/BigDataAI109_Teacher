@@ -1,0 +1,10 @@
+C:\Users\梓君\Documents\Visual Studio 2017\Projects\Win_LoadPicClassify\Win_LoadPicClassify\bin\Debug\Win_LoadPicClassify.exe.config
+C:\Users\梓君\Documents\Visual Studio 2017\Projects\Win_LoadPicClassify\Win_LoadPicClassify\bin\Debug\Win_LoadPicClassify.exe
+C:\Users\梓君\Documents\Visual Studio 2017\Projects\Win_LoadPicClassify\Win_LoadPicClassify\bin\Debug\Win_LoadPicClassify.pdb
+C:\Users\梓君\Documents\Visual Studio 2017\Projects\Win_LoadPicClassify\Win_LoadPicClassify\obj\Debug\Win_LoadPicClassify.csprojResolveAssemblyReference.cache
+C:\Users\梓君\Documents\Visual Studio 2017\Projects\Win_LoadPicClassify\Win_LoadPicClassify\obj\Debug\Win_LoadPicClassify.Form1.resources
+C:\Users\梓君\Documents\Visual Studio 2017\Projects\Win_LoadPicClassify\Win_LoadPicClassify\obj\Debug\Win_LoadPicClassify.Properties.Resources.resources
+C:\Users\梓君\Documents\Visual Studio 2017\Projects\Win_LoadPicClassify\Win_LoadPicClassify\obj\Debug\Win_LoadPicClassify.csproj.GenerateResource.Cache
+C:\Users\梓君\Documents\Visual Studio 2017\Projects\Win_LoadPicClassify\Win_LoadPicClassify\obj\Debug\Win_LoadPicClassify.csproj.CoreCompileInputs.cache
+C:\Users\梓君\Documents\Visual Studio 2017\Projects\Win_LoadPicClassify\Win_LoadPicClassify\obj\Debug\Win_LoadPicClassify.exe
+C:\Users\梓君\Documents\Visual Studio 2017\Projects\Win_LoadPicClassify\Win_LoadPicClassify\obj\Debug\Win_LoadPicClassify.pdb

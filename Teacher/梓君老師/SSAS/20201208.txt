@@ -1,0 +1,146 @@
+
+--------------------------------------------------------
+
+WITH T1
+AS
+(
+	SELECT [SalesOrderNumber] FROM FactOnlineSales
+	WHERE DateKey<'2008-1-1' AND CustomerKey<=18484	AND SalesOrderLineNumber=2	
+)
+,T2
+AS
+(
+	SELECT B.[SalesOrderNumber],A.ProductKey
+	FROM FactOnlineSales AS A JOIN T1 AS B ON A.SalesOrderNumber=B.SalesOrderNumber
+	WHERE A.ProductKey=120
+)
+--SELECT * FROM T2 ORDER BY [SalesOrderNumber]
+
+SELECT A.ProductKey,COUNT(*) AS Cnts
+FROM FactOnlineSales AS A JOIN T2 AS B ON A.SalesOrderNumber=B.SalesOrderNumber
+GROUP BY A.ProductKey
+ORDER BY Cnts DESC
+
+--------------------------------------------------------
+
+WITH SET AA
+AS	
+	FILTER([Dim OnlineSales].[Sales Order Number].MEMBERS-[Dim OnlineSales].[Sales Order Number].[All]
+		,([Measures].[Max_Line_Number],[Dim Date].[Calendar Year].&[2007])>=2)
+
+SET CC
+AS
+	EXISTS(AA,[Dim OnlineSales].[Product Key].&[120])
+
+SET DD
+AS
+	EXISTS([Dim OnlineSales].[Product Key].MEMBERS-[Dim OnlineSales].[Product Key].[All],CC)
+
+MEMBER EE
+AS
+	Aggregate(CC,[Measures].[線上銷售_計數])
+
+SELECT EE ON COLUMNS,
+	  DD ON ROWS
+FROM [ContosoRetail_Cube]
+WHERE ([Dim Date].[Calendar Year].&[2007],[Dim Customer].[Customer Type].&[Person])
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+https://technologyinsightscoffee.wordpress.com/2017/06/23/how-to-execute-a-mdx-query-in-sql-store-procedure/
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+master.dbo.sp_addlinkedserver
+@server = linked server name what you want
+@provider = library name to create connection to SQL Analysis Service
+@datasrc= SQL Analysis Service Instance name
+@catalog = Database Cube name that you want to query data
+*/
+EXEC master.dbo.sp_addlinkedserver
+@server = N'SSAS_Contoso'	--愛叫啥就叫啥
+,@provider= N'MSOLAP'		--驅動
+,@srvproduct =N''
+,@datasrc='Teacher'			--伺服器名稱
+,@catalog ='ContosoAS'		--Cube名稱
+GO
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE PROCEDURE usp_GetQueryFromSSAS
+AS
+BEGIN	
+	SELECT * FROM OPENQUERY([SSAS_Contoso],
+	N'
+	WITH SET AA
+	AS	
+		FILTER([Dim OnlineSales].[Sales Order Number].MEMBERS-[Dim OnlineSales].[Sales Order Number].[All]
+			,([Measures].[Max_Line_Number],[Dim Date].[Calendar Year].&[2007])>=2)
+
+	SET CC
+	AS
+		EXISTS(AA,[Dim OnlineSales].[Product Key].&[400])
+
+	SET DD
+	AS
+		EXISTS([Dim OnlineSales].[Product Key].MEMBERS-[Dim OnlineSales].[Product Key].[All],CC)
+
+	MEMBER EE
+	AS
+		Aggregate(CC,[Measures].[線上銷售_計數])
+
+	SELECT EE ON COLUMNS,
+		  DD ON ROWS
+	FROM [ContosoRetail_Cube]
+	WHERE ([Dim Date].[Calendar Year].&[2007],[Dim Customer].[Customer Type].&[Person])	
+	');
+END
+
+EXEC usp_GetQueryFromSSAS
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ALTER PROCEDURE usp_GetQueryFromSSAS @ProductKey NVARCHAR(5)
+AS
+BEGIN
+	DECLARE @MDX_Query NVARCHAR(MAX);
+	DECLARE @TotalSQL NVARCHAR(MAX);
+	SET @MDX_Query=N'
+	WITH SET AA
+	AS	
+		FILTER([Dim OnlineSales].[Sales Order Number].MEMBERS-[Dim OnlineSales].[Sales Order Number].[All]
+			,([Measures].[Max_Line_Number],[Dim Date].[Calendar Year].&[2007])>=2)
+
+	SET CC
+	AS
+		EXISTS(AA,[Dim OnlineSales].[Product Key].&['+@ProductKey+'])
+
+	SET DD
+	AS
+		EXISTS([Dim OnlineSales].[Product Key].MEMBERS-[Dim OnlineSales].[Product Key].[All],CC)
+
+	MEMBER [Frequency]
+	AS
+		Aggregate(CC,[Measures].[線上銷售_計數])
+
+	SELECT [Frequency] ON COLUMNS,
+		  [DD] ON ROWS
+	FROM [ContosoRetail_Cube]
+	WHERE ([Dim Date].[Calendar Year].&[2007],[Dim Customer].[Customer Type].&[Person])'
+
+	SET @TotalSQL=N'
+	SELECT 
+		"[Dim OnlineSales].[Product Key].[Product Key].[MEMBER_CAPTION]" AS ProductKey
+		,CONVERT(INT,"[Measures].[Frequency]") AS [Frequency]
+	FROM OPENQUERY([SSAS_Contoso],'''+@MDX_Query+''') ORDER BY [Frequency] DESC';
+	
+	EXEC(@TotalSQL);	
+END
+
+EXEC usp_GetQueryFromSSAS 350
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>北風連接(Windows驗證)</DataSourceReference>
+      <CommandText>SELECT 客戶編號,公司名稱,連絡人,連絡人職稱,電話,地址
+FROM 客戶</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="客戶編號">
+        <DataField>客戶編號</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="公司名稱">
+        <DataField>公司名稱</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="連絡人">
+        <DataField>連絡人</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="連絡人職稱">
+        <DataField>連絡人職稱</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="電話">
+        <DataField>電話</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="地址">
+        <DataField>地址</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

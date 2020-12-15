@@ -1,0 +1,2267 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/2/2020 9:11:50 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="Teacher"
+  DTS:CreatorName="Teacher\User"
+  DTS:DTSID="{6DFF5254-2E4C-4F33-B85B-657BD5F0DE30}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.132"
+  DTS:LocaleID="1028"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{3DCF4A45-C18D-4ED9-B9A8-E79FCDE1FF17}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.MyDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{FD2A5E8E-DBDF-45E7-A8FA-FE04D9EEC406}"
+      DTS:ObjectName="localhost.MyDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=MyDB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[中價位文字檔案連接]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{BB1EFDE1-9EA0-4AC9-8ECA-964DEC0DE384}"
+      DTS:ObjectName="中價位文字檔案連接">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1028"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="950"
+          DTS:ConnectionString="C:\BB\中價位.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 0"
+              DTS:DTSID="{A93F9689-6BC6-4AEE-ABAB-E23E5483B246}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 1"
+              DTS:DTSID="{E234E607-671F-4747-9779-1C32E762815B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 2"
+              DTS:DTSID="{90F0572D-26BB-4846-A171-7D9A284750BD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 3"
+              DTS:DTSID="{74D9E64B-49DF-43DC-B920-7193E9975481}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 4"
+              DTS:DTSID="{A8C68714-4E7F-4228-8A77-84E49B04A846}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 5"
+              DTS:DTSID="{B5EEE58C-C887-431B-B440-9FD14BB2FB3B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 6"
+              DTS:DTSID="{FFE9D31B-F3D3-489D-BFD7-85CCA247111F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 7"
+              DTS:DTSID="{37E5A9C2-5E93-48C0-AB81-78DBE46E1F9C}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[低價位文字檔案連接]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{0EBCAA8F-4170-4353-A450-601B645A097F}"
+      DTS:ObjectName="低價位文字檔案連接">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1028"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="950"
+          DTS:ConnectionString="C:\BB\低價位.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 0"
+              DTS:DTSID="{3CD97899-63B3-4A71-BE50-239E62080651}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 1"
+              DTS:DTSID="{4AD3414A-6A62-4628-A81E-37D969C7A827}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 2"
+              DTS:DTSID="{4C30961A-50A7-4C8F-A194-F96E35C39ABC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 3"
+              DTS:DTSID="{D8514C75-F57B-44A8-B104-777692BAD00C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 4"
+              DTS:DTSID="{2E3260A2-1202-40C4-B6BE-86834170E3CB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 5"
+              DTS:DTSID="{6240021F-609D-48D5-91BF-4C5886F79636}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 6"
+              DTS:DTSID="{D822B663-639E-46D9-8511-746E50F81D2B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 7"
+              DTS:DTSID="{A0F0EB5E-2BDF-4474-9D38-68DB56F24682}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[高價位文字檔案連接]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{6A2F131D-3A4C-4979-89E9-15B2F7C8FE90}"
+      DTS:ObjectName="高價位文字檔案連接">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1028"
+          DTS:Unicode="True"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="950"
+          DTS:ConnectionString="C:\BB\高價位.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 0"
+              DTS:DTSID="{250B8A97-FC7C-4246-81C0-C2DB775EF909}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 1"
+              DTS:DTSID="{9441FDAB-38B1-4500-96CA-A51F0EFE6A79}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 2"
+              DTS:DTSID="{06A8A4C9-03FE-4566-9BD5-914C9EDA5C25}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 3"
+              DTS:DTSID="{81D2B131-0E75-4756-8548-08AB9B2F9103}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 4"
+              DTS:DTSID="{C91A7449-2AAD-495C-936D-9AD646648D93}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 5"
+              DTS:DTSID="{78163948-7D50-4B1C-9770-D9740A7912D2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 6"
+              DTS:DTSID="{DBDE24F4-A497-487B-9118-63D74451362C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 7"
+              DTS:DTSID="{895570E3-4FC2-4FAB-A55A-F574625E2168}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\匯入文字資料(低中高)"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:Description="資料流程工作"
+      DTS:DTSID="{520619A0-AAF2-4362-93E5-FDE315F8CD20}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="匯入文字資料(低中高)"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\匯入文字資料(低中高)\OLE DB 目的地"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB 目的地;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;4"
+              description="OLE DB 目的地"
+              name="OLE DB 目的地"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="命令逾時之前的秒數。值為 0 表示無限逾時。"
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="指定用於開啟資料列集之資料庫物件的名稱。"
+                  name="OpenRowset">[dbo].[北風產品]</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含用於開啟資料列集之資料庫物件名稱的變數。"
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="要執行的 SQL 命令。"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="指定無法從資料來源取得字碼頁資訊時，要使用的資料行字碼頁。"
+                  name="DefaultCodePage">950</property>
+                <property
+                  dataType="System.Boolean"
+                  description="描述字元資料時，強制使用 DefaultCodePage 屬性值。"
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用於存取資料庫的模式。"
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指出提供給識別欄位的值是否複製到目的地。如果為 False，則會在目的地自動產生識別欄位的值。只有在開啟快速載入時才會套用。"
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指出包含 Null 之資料行的 Null 是否會插入目的地。若是 False，則包含 Null 的資料行的預設值會插入目的地。唯有開啟快速載入時才適用。"
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="指定快速載入使用的選項。只有開啟快速載入時才會套用。"
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定在資料插入期間發出認可的時間。值為 0 指定在資料插入結束時發出一次認可。只有開啟快速載入時才會套用。"
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\匯入文字資料(低中高)\OLE DB 目的地.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.MyDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.MyDB]"
+                  description="用於存取資料庫的 OLE DB 執行階段連接。"
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\匯入文字資料(低中高)\OLE DB 目的地.Inputs[OLE DB 目的地輸入]"
+                  errorOrTruncationOperation="插入"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB 目的地輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地.Inputs[OLE DB 目的地輸入].Columns[資料行 0]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="資料行 0"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[產品編號]"
+                      lineageId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 0]" />
+                    <inputColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地.Inputs[OLE DB 目的地輸入].Columns[資料行 2]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="資料行 2"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[類別編號]"
+                      lineageId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 2]" />
+                    <inputColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地.Inputs[OLE DB 目的地輸入].Columns[資料行 3]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="資料行 3"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[供應商編號]"
+                      lineageId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 3]" />
+                    <inputColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地.Inputs[OLE DB 目的地輸入].Columns[資料行 5]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="資料行 5"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[單價]"
+                      lineageId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 5]" />
+                    <inputColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地.Inputs[OLE DB 目的地輸入].Columns[資料行 6]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="資料行 6"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[庫存量]"
+                      lineageId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 6]" />
+                    <inputColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地.Inputs[OLE DB 目的地輸入].Columns[資料行 7]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="資料行 7"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[安全存量]"
+                      lineageId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 7]" />
+                    <inputColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地.Inputs[OLE DB 目的地輸入].Columns[新產品名]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="新產品名"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[產品]"
+                      lineageId="Package\匯入文字資料(低中高)\資料轉換.Outputs[資料轉換輸出].Columns[新產品名]" />
+                    <inputColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地.Inputs[OLE DB 目的地輸入].Columns[新單位]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="新單位"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[單位數量]"
+                      lineageId="Package\匯入文字資料(低中高)\資料轉換.Outputs[資料轉換輸出].Columns[新單位]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[產品編號]"
+                      dataType="i4"
+                      name="產品編號" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[產品]"
+                      dataType="wstr"
+                      length="10"
+                      name="產品" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[類別編號]"
+                      dataType="i4"
+                      name="類別編號" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[供應商編號]"
+                      dataType="i4"
+                      name="供應商編號" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[單位數量]"
+                      dataType="wstr"
+                      length="10"
+                      name="單位數量" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[單價]"
+                      dataType="cy"
+                      name="單價" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[庫存量]"
+                      dataType="i4"
+                      name="庫存量" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[安全存量]"
+                      dataType="i4"
+                      name="安全存量" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\匯入文字資料(低中高)\OLE DB 目的地.Outputs[OLE DB 目的地錯誤輸出]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB 目的地錯誤輸出"
+                  synchronousInputId="Package\匯入文字資料(低中高)\OLE DB 目的地.Inputs[OLE DB 目的地輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\匯入文字資料(低中高)\OLE DB 目的地.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\匯入文字資料(低中高)\OLE DB 目的地.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\匯入文字資料(低中高)\OLE DB 目的地 1"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB 目的地;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;4"
+              description="OLE DB 目的地"
+              name="OLE DB 目的地 1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="命令逾時之前的秒數。值為 0 表示無限逾時。"
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="指定用於開啟資料列集之資料庫物件的名稱。"
+                  name="OpenRowset">[dbo].[北風產品]</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含用於開啟資料列集之資料庫物件名稱的變數。"
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="要執行的 SQL 命令。"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="指定無法從資料來源取得字碼頁資訊時，要使用的資料行字碼頁。"
+                  name="DefaultCodePage">950</property>
+                <property
+                  dataType="System.Boolean"
+                  description="描述字元資料時，強制使用 DefaultCodePage 屬性值。"
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用於存取資料庫的模式。"
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指出提供給識別欄位的值是否複製到目的地。如果為 False，則會在目的地自動產生識別欄位的值。只有在開啟快速載入時才會套用。"
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指出包含 Null 之資料行的 Null 是否會插入目的地。若是 False，則包含 Null 的資料行的預設值會插入目的地。唯有開啟快速載入時才適用。"
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="指定快速載入使用的選項。只有開啟快速載入時才會套用。"
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定在資料插入期間發出認可的時間。值為 0 指定在資料插入結束時發出一次認可。只有開啟快速載入時才會套用。"
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.MyDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.MyDB]"
+                  description="用於存取資料庫的 OLE DB 執行階段連接。"
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Inputs[OLE DB 目的地輸入]"
+                  errorOrTruncationOperation="插入"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB 目的地輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Inputs[OLE DB 目的地輸入].Columns[資料行 0]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="資料行 0"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Inputs[OLE DB 目的地輸入].ExternalColumns[產品編號]"
+                      lineageId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 0]" />
+                    <inputColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Inputs[OLE DB 目的地輸入].Columns[資料行 1]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="資料行 1"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Inputs[OLE DB 目的地輸入].ExternalColumns[產品]"
+                      lineageId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 1]" />
+                    <inputColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Inputs[OLE DB 目的地輸入].Columns[資料行 2]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="資料行 2"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Inputs[OLE DB 目的地輸入].ExternalColumns[類別編號]"
+                      lineageId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 2]" />
+                    <inputColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Inputs[OLE DB 目的地輸入].Columns[資料行 3]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="資料行 3"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Inputs[OLE DB 目的地輸入].ExternalColumns[供應商編號]"
+                      lineageId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 3]" />
+                    <inputColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Inputs[OLE DB 目的地輸入].Columns[資料行 4]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="資料行 4"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Inputs[OLE DB 目的地輸入].ExternalColumns[單位數量]"
+                      lineageId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 4]" />
+                    <inputColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Inputs[OLE DB 目的地輸入].Columns[資料行 5]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="資料行 5"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Inputs[OLE DB 目的地輸入].ExternalColumns[單價]"
+                      lineageId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 5]" />
+                    <inputColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Inputs[OLE DB 目的地輸入].Columns[資料行 6]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="資料行 6"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Inputs[OLE DB 目的地輸入].ExternalColumns[庫存量]"
+                      lineageId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 6]" />
+                    <inputColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Inputs[OLE DB 目的地輸入].Columns[資料行 7]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="資料行 7"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Inputs[OLE DB 目的地輸入].ExternalColumns[安全存量]"
+                      lineageId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 7]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Inputs[OLE DB 目的地輸入].ExternalColumns[產品編號]"
+                      dataType="i4"
+                      name="產品編號" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Inputs[OLE DB 目的地輸入].ExternalColumns[產品]"
+                      dataType="wstr"
+                      length="10"
+                      name="產品" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Inputs[OLE DB 目的地輸入].ExternalColumns[類別編號]"
+                      dataType="i4"
+                      name="類別編號" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Inputs[OLE DB 目的地輸入].ExternalColumns[供應商編號]"
+                      dataType="i4"
+                      name="供應商編號" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Inputs[OLE DB 目的地輸入].ExternalColumns[單位數量]"
+                      dataType="wstr"
+                      length="10"
+                      name="單位數量" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Inputs[OLE DB 目的地輸入].ExternalColumns[單價]"
+                      dataType="cy"
+                      name="單價" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Inputs[OLE DB 目的地輸入].ExternalColumns[庫存量]"
+                      dataType="i4"
+                      name="庫存量" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Inputs[OLE DB 目的地輸入].ExternalColumns[安全存量]"
+                      dataType="i4"
+                      name="安全存量" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Outputs[OLE DB 目的地錯誤輸出]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB 目的地錯誤輸出"
+                  synchronousInputId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Inputs[OLE DB 目的地輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\匯入文字資料(低中高)\OLE DB 目的地 2"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB 目的地;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;4"
+              description="OLE DB 目的地"
+              name="OLE DB 目的地 2"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="命令逾時之前的秒數。值為 0 表示無限逾時。"
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="指定用於開啟資料列集之資料庫物件的名稱。"
+                  name="OpenRowset">[dbo].[北風產品]</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含用於開啟資料列集之資料庫物件名稱的變數。"
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="要執行的 SQL 命令。"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="指定無法從資料來源取得字碼頁資訊時，要使用的資料行字碼頁。"
+                  name="DefaultCodePage">950</property>
+                <property
+                  dataType="System.Boolean"
+                  description="描述字元資料時，強制使用 DefaultCodePage 屬性值。"
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用於存取資料庫的模式。"
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指出提供給識別欄位的值是否複製到目的地。如果為 False，則會在目的地自動產生識別欄位的值。只有在開啟快速載入時才會套用。"
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指出包含 Null 之資料行的 Null 是否會插入目的地。若是 False，則包含 Null 的資料行的預設值會插入目的地。唯有開啟快速載入時才適用。"
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="指定快速載入使用的選項。只有開啟快速載入時才會套用。"
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定在資料插入期間發出認可的時間。值為 0 指定在資料插入結束時發出一次認可。只有開啟快速載入時才會套用。"
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.MyDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.MyDB]"
+                  description="用於存取資料庫的 OLE DB 執行階段連接。"
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Inputs[OLE DB 目的地輸入]"
+                  errorOrTruncationOperation="插入"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB 目的地輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Inputs[OLE DB 目的地輸入].Columns[資料行 0]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="資料行 0"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Inputs[OLE DB 目的地輸入].ExternalColumns[產品編號]"
+                      lineageId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 0]" />
+                    <inputColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Inputs[OLE DB 目的地輸入].Columns[資料行 2]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="資料行 2"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Inputs[OLE DB 目的地輸入].ExternalColumns[類別編號]"
+                      lineageId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 2]" />
+                    <inputColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Inputs[OLE DB 目的地輸入].Columns[資料行 3]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="資料行 3"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Inputs[OLE DB 目的地輸入].ExternalColumns[供應商編號]"
+                      lineageId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 3]" />
+                    <inputColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Inputs[OLE DB 目的地輸入].Columns[資料行 5]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="資料行 5"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Inputs[OLE DB 目的地輸入].ExternalColumns[單價]"
+                      lineageId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 5]" />
+                    <inputColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Inputs[OLE DB 目的地輸入].Columns[資料行 6]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="資料行 6"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Inputs[OLE DB 目的地輸入].ExternalColumns[庫存量]"
+                      lineageId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 6]" />
+                    <inputColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Inputs[OLE DB 目的地輸入].Columns[資料行 7]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="資料行 7"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Inputs[OLE DB 目的地輸入].ExternalColumns[安全存量]"
+                      lineageId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 7]" />
+                    <inputColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Inputs[OLE DB 目的地輸入].Columns[新產品名]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="新產品名"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Inputs[OLE DB 目的地輸入].ExternalColumns[產品]"
+                      lineageId="Package\匯入文字資料(低中高)\資料轉換 1.Outputs[資料轉換輸出].Columns[新產品名]" />
+                    <inputColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Inputs[OLE DB 目的地輸入].Columns[新單位]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="新單位"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Inputs[OLE DB 目的地輸入].ExternalColumns[單位數量]"
+                      lineageId="Package\匯入文字資料(低中高)\資料轉換 1.Outputs[資料轉換輸出].Columns[新單位]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Inputs[OLE DB 目的地輸入].ExternalColumns[產品編號]"
+                      dataType="i4"
+                      name="產品編號" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Inputs[OLE DB 目的地輸入].ExternalColumns[產品]"
+                      dataType="wstr"
+                      length="10"
+                      name="產品" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Inputs[OLE DB 目的地輸入].ExternalColumns[類別編號]"
+                      dataType="i4"
+                      name="類別編號" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Inputs[OLE DB 目的地輸入].ExternalColumns[供應商編號]"
+                      dataType="i4"
+                      name="供應商編號" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Inputs[OLE DB 目的地輸入].ExternalColumns[單位數量]"
+                      dataType="wstr"
+                      length="10"
+                      name="單位數量" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Inputs[OLE DB 目的地輸入].ExternalColumns[單價]"
+                      dataType="cy"
+                      name="單價" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Inputs[OLE DB 目的地輸入].ExternalColumns[庫存量]"
+                      dataType="i4"
+                      name="庫存量" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Inputs[OLE DB 目的地輸入].ExternalColumns[安全存量]"
+                      dataType="i4"
+                      name="安全存量" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Outputs[OLE DB 目的地錯誤輸出]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB 目的地錯誤輸出"
+                  synchronousInputId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Inputs[OLE DB 目的地輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\匯入文字資料(低中高)\中價位文字檔案來源"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="一般檔案來源;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;1"
+              description="一般檔案來源"
+              localeId="1028"
+              name="中價位文字檔案來源"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="指定零長度資料行是否當成 Null 處理。"
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含檔案名稱之輸出資料行的名稱。如果未指定名稱，將不會產生包含檔案名稱的輸出資料行。"
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[中價位文字檔案連接]"
+                  connectionManagerRefId="Package.ConnectionManagers[中價位文字檔案連接]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出]"
+                  name="一般檔案來源輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 0]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 0]"
+                      length="50"
+                      lineageId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 0]"
+                      name="資料行 0"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 1]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 1]"
+                      length="50"
+                      lineageId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 1]"
+                      name="資料行 1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 2]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 2]"
+                      length="50"
+                      lineageId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 2]"
+                      name="資料行 2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 3]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 3]"
+                      length="50"
+                      lineageId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 3]"
+                      name="資料行 3"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 4]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 4]"
+                      length="50"
+                      lineageId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 4]"
+                      name="資料行 4"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 5]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 5]"
+                      length="50"
+                      lineageId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 5]"
+                      name="資料行 5"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 6]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 6]"
+                      length="50"
+                      lineageId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 6]"
+                      name="資料行 6"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 7]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 7]"
+                      length="50"
+                      lineageId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 7]"
+                      name="資料行 7"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 0]"
+                      codePage="950"
+                      dataType="str"
+                      length="50"
+                      name="資料行 0" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 1]"
+                      codePage="950"
+                      dataType="str"
+                      length="50"
+                      name="資料行 1" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 2]"
+                      codePage="950"
+                      dataType="str"
+                      length="50"
+                      name="資料行 2" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 3]"
+                      codePage="950"
+                      dataType="str"
+                      length="50"
+                      name="資料行 3" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 4]"
+                      codePage="950"
+                      dataType="str"
+                      length="50"
+                      name="資料行 4" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 5]"
+                      codePage="950"
+                      dataType="str"
+                      length="50"
+                      name="資料行 5" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 6]"
+                      codePage="950"
+                      dataType="str"
+                      length="50"
+                      name="資料行 6" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 7]"
+                      codePage="950"
+                      dataType="str"
+                      length="50"
+                      name="資料行 7" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源錯誤輸出]"
+                  isErrorOut="true"
+                  name="一般檔案來源錯誤輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源錯誤輸出].Columns[一般檔案來源錯誤輸出資料行]"
+                      codePage="950"
+                      dataType="text"
+                      description="一般檔案來源錯誤輸出資料行"
+                      lineageId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源錯誤輸出].Columns[一般檔案來源錯誤輸出資料行]"
+                      name="一般檔案來源錯誤輸出資料行" />
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\匯入文字資料(低中高)\低價位文字檔案來源"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="一般檔案來源;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;1"
+              description="一般檔案來源"
+              localeId="1028"
+              name="低價位文字檔案來源"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="指定零長度資料行是否當成 Null 處理。"
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含檔案名稱之輸出資料行的名稱。如果未指定名稱，將不會產生包含檔案名稱的輸出資料行。"
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[低價位文字檔案連接]"
+                  connectionManagerRefId="Package.ConnectionManagers[低價位文字檔案連接]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出]"
+                  name="一般檔案來源輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 0]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 0]"
+                      length="50"
+                      lineageId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 0]"
+                      name="資料行 0"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 1]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 1]"
+                      length="50"
+                      lineageId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 1]"
+                      name="資料行 1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 2]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 2]"
+                      length="50"
+                      lineageId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 2]"
+                      name="資料行 2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 3]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 3]"
+                      length="50"
+                      lineageId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 3]"
+                      name="資料行 3"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 4]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 4]"
+                      length="50"
+                      lineageId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 4]"
+                      name="資料行 4"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 5]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 5]"
+                      length="50"
+                      lineageId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 5]"
+                      name="資料行 5"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 6]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 6]"
+                      length="50"
+                      lineageId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 6]"
+                      name="資料行 6"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 7]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 7]"
+                      length="50"
+                      lineageId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 7]"
+                      name="資料行 7"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 0]"
+                      codePage="950"
+                      dataType="str"
+                      length="50"
+                      name="資料行 0" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 1]"
+                      codePage="950"
+                      dataType="str"
+                      length="50"
+                      name="資料行 1" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 2]"
+                      codePage="950"
+                      dataType="str"
+                      length="50"
+                      name="資料行 2" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 3]"
+                      codePage="950"
+                      dataType="str"
+                      length="50"
+                      name="資料行 3" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 4]"
+                      codePage="950"
+                      dataType="str"
+                      length="50"
+                      name="資料行 4" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 5]"
+                      codePage="950"
+                      dataType="str"
+                      length="50"
+                      name="資料行 5" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 6]"
+                      codePage="950"
+                      dataType="str"
+                      length="50"
+                      name="資料行 6" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 7]"
+                      codePage="950"
+                      dataType="str"
+                      length="50"
+                      name="資料行 7" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源錯誤輸出]"
+                  isErrorOut="true"
+                  name="一般檔案來源錯誤輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源錯誤輸出].Columns[一般檔案來源錯誤輸出資料行]"
+                      codePage="950"
+                      dataType="text"
+                      description="一般檔案來源錯誤輸出資料行"
+                      lineageId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源錯誤輸出].Columns[一般檔案來源錯誤輸出資料行]"
+                      name="一般檔案來源錯誤輸出資料行" />
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\匯入文字資料(低中高)\資料轉換"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="資料轉換;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;0"
+              description="資料轉換"
+              name="資料轉換"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\匯入文字資料(低中高)\資料轉換.Inputs[資料轉換輸入]"
+                  name="資料轉換輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\匯入文字資料(低中高)\資料轉換.Inputs[資料轉換輸入].Columns[資料行 1]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="資料行 1"
+                      lineageId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 1]" />
+                    <inputColumn
+                      refId="Package\匯入文字資料(低中高)\資料轉換.Inputs[資料轉換輸入].Columns[資料行 4]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="資料行 4"
+                      lineageId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 4]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\匯入文字資料(低中高)\資料轉換.Outputs[資料轉換輸出]"
+                  exclusionGroup="1"
+                  name="資料轉換輸出"
+                  synchronousInputId="Package\匯入文字資料(低中高)\資料轉換.Inputs[資料轉換輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\資料轉換.Outputs[資料轉換輸出].Columns[新產品名]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\匯入文字資料(低中高)\資料轉換.Outputs[資料轉換輸出].Columns[新產品名]"
+                      name="新產品名"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 1]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\資料轉換.Outputs[資料轉換輸出].Columns[新單位]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\匯入文字資料(低中高)\資料轉換.Outputs[資料轉換輸出].Columns[新單位]"
+                      name="新單位"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 4]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\匯入文字資料(低中高)\資料轉換.Outputs[資料轉換錯誤輸出]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="資料轉換錯誤輸出"
+                  synchronousInputId="Package\匯入文字資料(低中高)\資料轉換.Inputs[資料轉換輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\資料轉換.Outputs[資料轉換錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\匯入文字資料(低中高)\資料轉換.Outputs[資料轉換錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\資料轉換.Outputs[資料轉換錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\匯入文字資料(低中高)\資料轉換.Outputs[資料轉換錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\匯入文字資料(低中高)\資料轉換 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="資料轉換;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;0"
+              description="資料轉換"
+              name="資料轉換 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\匯入文字資料(低中高)\資料轉換 1.Inputs[資料轉換輸入]"
+                  name="資料轉換輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\匯入文字資料(低中高)\資料轉換 1.Inputs[資料轉換輸入].Columns[資料行 1]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="資料行 1"
+                      lineageId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 1]" />
+                    <inputColumn
+                      refId="Package\匯入文字資料(低中高)\資料轉換 1.Inputs[資料轉換輸入].Columns[資料行 4]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="資料行 4"
+                      lineageId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 4]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\匯入文字資料(低中高)\資料轉換 1.Outputs[資料轉換輸出]"
+                  exclusionGroup="1"
+                  name="資料轉換輸出"
+                  synchronousInputId="Package\匯入文字資料(低中高)\資料轉換 1.Inputs[資料轉換輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\資料轉換 1.Outputs[資料轉換輸出].Columns[新產品名]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\匯入文字資料(低中高)\資料轉換 1.Outputs[資料轉換輸出].Columns[新產品名]"
+                      name="新產品名"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 1]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\資料轉換 1.Outputs[資料轉換輸出].Columns[新單位]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\匯入文字資料(低中高)\資料轉換 1.Outputs[資料轉換輸出].Columns[新單位]"
+                      name="新單位"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 4]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\匯入文字資料(低中高)\資料轉換 1.Outputs[資料轉換錯誤輸出]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="資料轉換錯誤輸出"
+                  synchronousInputId="Package\匯入文字資料(低中高)\資料轉換 1.Inputs[資料轉換輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\資料轉換 1.Outputs[資料轉換錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\匯入文字資料(低中高)\資料轉換 1.Outputs[資料轉換錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\資料轉換 1.Outputs[資料轉換錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\匯入文字資料(低中高)\資料轉換 1.Outputs[資料轉換錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\匯入文字資料(低中高)\高價位文字檔案來源"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="一般檔案來源;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;1"
+              description="一般檔案來源"
+              localeId="1028"
+              name="高價位文字檔案來源"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="指定零長度資料行是否當成 Null 處理。"
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含檔案名稱之輸出資料行的名稱。如果未指定名稱，將不會產生包含檔案名稱的輸出資料行。"
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[高價位文字檔案連接]"
+                  connectionManagerRefId="Package.ConnectionManagers[高價位文字檔案連接]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出]"
+                  name="一般檔案來源輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 0]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 0]"
+                      length="50"
+                      lineageId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 0]"
+                      name="資料行 0"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 1]"
+                      length="50"
+                      lineageId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 1]"
+                      name="資料行 1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 2]"
+                      length="50"
+                      lineageId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 2]"
+                      name="資料行 2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 3]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 3]"
+                      length="50"
+                      lineageId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 3]"
+                      name="資料行 3"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 4]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 4]"
+                      length="50"
+                      lineageId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 4]"
+                      name="資料行 4"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 5]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 5]"
+                      length="50"
+                      lineageId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 5]"
+                      name="資料行 5"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 6]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 6]"
+                      length="50"
+                      lineageId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 6]"
+                      name="資料行 6"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 7]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 7]"
+                      length="50"
+                      lineageId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 7]"
+                      name="資料行 7"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 0]"
+                      dataType="wstr"
+                      length="50"
+                      name="資料行 0" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 1]"
+                      dataType="wstr"
+                      length="50"
+                      name="資料行 1" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 2]"
+                      dataType="wstr"
+                      length="50"
+                      name="資料行 2" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 3]"
+                      dataType="wstr"
+                      length="50"
+                      name="資料行 3" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 4]"
+                      dataType="wstr"
+                      length="50"
+                      name="資料行 4" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 5]"
+                      dataType="wstr"
+                      length="50"
+                      name="資料行 5" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 6]"
+                      dataType="wstr"
+                      length="50"
+                      name="資料行 6" />
+                    <externalMetadataColumn
+                      refId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 7]"
+                      dataType="wstr"
+                      length="50"
+                      name="資料行 7" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源錯誤輸出]"
+                  isErrorOut="true"
+                  name="一般檔案來源錯誤輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源錯誤輸出].Columns[一般檔案來源錯誤輸出資料行]"
+                      dataType="nText"
+                      description="一般檔案來源錯誤輸出資料行"
+                      lineageId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源錯誤輸出].Columns[一般檔案來源錯誤輸出資料行]"
+                      name="一般檔案來源錯誤輸出資料行" />
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\匯入文字資料(低中高).Paths[一般檔案來源輸出]"
+              endId="Package\匯入文字資料(低中高)\資料轉換.Inputs[資料轉換輸入]"
+              name="一般檔案來源輸出"
+              startId="Package\匯入文字資料(低中高)\低價位文字檔案來源.Outputs[一般檔案來源輸出]" />
+            <path
+              refId="Package\匯入文字資料(低中高).Paths[一般檔案來源輸出1]"
+              endId="Package\匯入文字資料(低中高)\OLE DB 目的地 1.Inputs[OLE DB 目的地輸入]"
+              name="一般檔案來源輸出"
+              startId="Package\匯入文字資料(低中高)\高價位文字檔案來源.Outputs[一般檔案來源輸出]" />
+            <path
+              refId="Package\匯入文字資料(低中高).Paths[一般檔案來源輸出2]"
+              endId="Package\匯入文字資料(低中高)\資料轉換 1.Inputs[資料轉換輸入]"
+              name="一般檔案來源輸出"
+              startId="Package\匯入文字資料(低中高)\中價位文字檔案來源.Outputs[一般檔案來源輸出]" />
+            <path
+              refId="Package\匯入文字資料(低中高).Paths[資料轉換輸出]"
+              endId="Package\匯入文字資料(低中高)\OLE DB 目的地.Inputs[OLE DB 目的地輸入]"
+              name="資料轉換輸出"
+              startId="Package\匯入文字資料(低中高)\資料轉換.Outputs[資料轉換輸出]" />
+            <path
+              refId="Package\匯入文字資料(低中高).Paths[資料轉換輸出1]"
+              endId="Package\匯入文字資料(低中高)\OLE DB 目的地 2.Inputs[OLE DB 目的地輸入]"
+              name="資料轉換輸出"
+              startId="Package\匯入文字資料(低中高)\資料轉換 1.Outputs[資料轉換輸出]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\建立表或清空表"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="執行 SQL 工作"
+      DTS:DTSID="{C3E370C1-D0EE-41D0-8E94-3955FEAC4491}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="建立表或清空表"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{FD2A5E8E-DBDF-45E7-A8FA-FE04D9EEC406}"
+          SQLTask:SqlStatementSource="&#xA;IF (SELECT COUNT(*) FROM sys.tables WHERE [name]='北風產品')&gt;0&#xA;&#x9;TRUNCATE TABLE 北風產品&#xA;ELSE&#xA;  BEGIN&#xA;&#x9;CREATE TABLE 北風產品&#xA;&#x9;(&#xA;&#x9;&#x9;產品編號 INT,&#xA;&#x9;&#x9;產品 NVARCHAR(10),&#xA;&#x9;&#x9;類別編號 INT,&#xA;&#x9;&#x9;供應商編號 INT,&#xA;&#x9;&#x9;單位數量 NVARCHAR(10),&#xA;&#x9;&#x9;單價 MONEY,&#xA;&#x9;&#x9;庫存量 INT,&#xA;&#x9;&#x9;安全存量 INT&#xA;&#x9;)&#xA;  END&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[條件約束]"
+      DTS:CreationName=""
+      DTS:DTSID="{966BDA8F-34B0-4FAB-AC1B-AEBC9F628369}"
+      DTS:From="Package\建立表或清空表"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="條件約束"
+      DTS:To="Package\匯入文字資料(低中高)" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--此 CDATA 區段包含封裝的配置資訊。此區段包括諸如 (x,y) 座標、寬度和長度等資訊。-->
+<!--如果您手動編輯此區段但出錯，則可加以刪除。 -->
+<!--封裝仍可正常載入，但先前的配置資訊會遺失，而設計師將在設計介面上自動重新排列元素。-->
+<Objects
+  Version="8">
+  <!--下面每個節點將包含不會影響執行階段行為的屬性。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="163,42"
+          Id="Package\建立表或清空表"
+          TopLeft="317.499987383684,115.142851260244" />
+        <NodeLayout
+          Size="195,42"
+          Id="Package\匯入文字資料(低中高)"
+          TopLeft="330.833320187198,243.285701856322" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[條件約束]"
+          TopLeft="398.999987383684,157.142851260244">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="29.3333328035143,86.1428505960779"
+              Start="0,0"
+              End="29.3333328035143,78.6428505960779">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.071425298039" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.071425298039"
+                    Point2="0,43.071425298039"
+                    Point3="4,43.071425298039" />
+                  <mssgle:LineSegment
+                    End="25.3333328035143,43.071425298039" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.3333328035143,43.071425298039"
+                    Point2="29.3333328035143,43.071425298039"
+                    Point3="29.3333328035143,47.071425298039" />
+                  <mssgle:LineSegment
+                    End="29.3333328035143,78.6428505960779" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\匯入文字資料(低中高)">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="187,42"
+          Id="Package\匯入文字資料(低中高)\中價位文字檔案來源"
+          TopLeft="352.499985992909,109.571422973458" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\匯入文字資料(低中高)\資料轉換"
+          TopLeft="126.666661633386,198.714275562034" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\匯入文字資料(低中高)\資料轉換 1"
+          TopLeft="370.833318597741,211.714274897868" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\匯入文字資料(低中高)\高價位文字檔案來源"
+          TopLeft="624.166641864513,102.14285192441" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\匯入文字資料(低中高)\低價位文字檔案來源"
+          TopLeft="95.833329525259,97.4999950187549" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\匯入文字資料(低中高)\OLE DB 目的地"
+          TopLeft="114.999995430311,313.857126822278" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\匯入文字資料(低中高)\OLE DB 目的地 1"
+          TopLeft="630.83330826627,324.99998339585" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\匯入文字資料(低中高)\OLE DB 目的地 2"
+          TopLeft="368.333318697082,335.214268588291" />
+        <EdgeLayout
+          Id="Package\匯入文字資料(低中高).Paths[一般檔案來源輸出2]"
+          TopLeft="448.416652295325,151.571422973458">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.1428519244099"
+              Start="0,0"
+              End="0,52.6428519244099">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.6428519244099" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\匯入文字資料(低中高).Paths[一般檔案來源輸出1]"
+          TopLeft="717.249975065391,144.14285192441">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,180.85713147144"
+              Start="0,0"
+              End="0,173.35713147144">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,173.35713147144" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\匯入文字資料(低中高).Paths[一般檔案來源輸出]"
+          TopLeft="189.749995579323,139.499995018755">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.2142805432791"
+              Start="0,0"
+              End="0,51.7142805432791">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.7142805432791" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\匯入文字資料(低中高).Paths[資料轉換輸出1]"
+          TopLeft="450.083318647412,253.714274897868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,81.4999936904229"
+              Start="0,0"
+              End="0,73.9999936904229">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,73.9999936904229" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\匯入文字資料(低中高).Paths[資料轉換輸出]"
+          TopLeft="193.083328531848,240.714275562034">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,73.1428512602439"
+              Start="0,0"
+              End="0,65.6428512602439">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,65.6428512602439" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\匯入文字資料(低中高)\OLE DB 目的地">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\匯入文字資料(低中高)\OLE DB 目的地 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

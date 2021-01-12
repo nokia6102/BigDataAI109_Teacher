@@ -1,8 +1,9 @@
 /*
---使用老師寫的工具
---Win_LoadPicClassify
+-- 使用老師寫的工具
+-- Win_LoadPicClassify
+-- *要用整理好的目錄*
 -- [PicTest] 資料庫
---上傳產生 PicPathData 資料表
+-- 上傳產生 PicPathData 資料表
 */
 
 --用過清空

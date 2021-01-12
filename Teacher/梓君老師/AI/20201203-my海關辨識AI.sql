@@ -1,3 +1,19 @@
+----- 補:建立資料庫
+CREATE DATABASE [PicTest]
+ ON  PRIMARY 
+( NAME = N'資料', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\Pic_Data.mdf' )
+ LOG ON 
+( NAME = N'記錄', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\Pic_log.ldf' )
+GO
+
+------
+USE [PicTest]
+GO
+
+-- log file 使用 大量記錄模式
+ALTER DATABASE [PicTest] SET RECOVERY BULK_LOGGED;
+GO
+
 /*
 -- 使用老師寫的工具
 -- Win_LoadPicClassify

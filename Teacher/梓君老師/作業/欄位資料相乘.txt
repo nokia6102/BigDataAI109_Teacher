@@ -1,0 +1,14 @@
+
+CREATE TABLE 良率表
+(
+  線別 CHAR(2),
+  站別 INT,
+  良率 MONEY
+)
+GO
+INSERT INTO 良率表 VALUES('L1',1,0.8),('L1',2,0.9),('L1',3,0.7)
+INSERT INTO 良率表 VALUES('L2',1,0.9),('L2',2,0.9),('L2',3,0.8),('L2',4,0.9)
+
+SELECT * FROM 良率表
+
+

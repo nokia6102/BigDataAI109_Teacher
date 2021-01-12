@@ -1,0 +1,286 @@
+
+SELECT TOP(200) * FROM DimCustomer;
+
+SELECT COUNT(*) FROM DimCustomer;
+SELECT COUNT(BirthDate) FROM DimCustomer;
+SELECT * FROM DimCustomer WHERE BirthDate IS NULL;
+
+
+SELECT MAX(YearlyIncome), MIN(YearlyIncome), AVG(YearlyIncome) FROM DimCustomer;
+
+WITH TT
+AS
+(
+	SELECT 'AA' AS [Name] ,YEAR(GETDATE())-YEAR(BirthDate)-20 AS [Age] FROM DimCustomer
+)
+
+--SELECT MAX([Age]), MIN([Age]), AVG([Age]) FROM TT;
+SELECT 
+	PERCENTILE_DISC(0.25) WITHIN GROUP ( ORDER BY [Age] ASC)  OVER (PARTITION BY [Name]),
+	PERCENTILE_DISC(0.5) WITHIN GROUP ( ORDER BY [Age] ASC)  OVER (PARTITION BY [Name]),
+	PERCENTILE_DISC(0.75) WITHIN GROUP ( ORDER BY [Age] ASC)  OVER (PARTITION BY [Name])
+FROM TT;
+
+
+ALTER TABLE DimCustomer ADD [Age] TINYINT;
+ALTER TABLE DimCustomer ADD [AgeLevel] TINYINT;
+
+UPDATE DimCustomer SET [Age]=YEAR(GETDATE())-YEAR(BirthDate)-20;
+/*
+20~30  1
+30~37  2
+37~46  3
+46~60  4
+60~90  5
+NULL   0
+*/
+
+UPDATE DimCustomer SET [AgeLevel]=IIF([Age]<30,1,IIF([Age]<37,2,IIF([Age]<46,3,IIF([Age]<60,4,5))));
+UPDATE DimCustomer SET [AgeLevel]=0 WHERE [Age] IS NULL;
+
+SELECT YearlyIncome,COUNT(*)
+FROM DimCustomer
+GROUP BY YearlyIncome
+ORDER BY YearlyIncome
+
+/*
+0~3		1
+4~7		2
+8~10	3
+11~17	4
+		0
+*/
+ALTER TABLE DimCustomer ADD [YearlyIncomeLevel] TINYINT;
+UPDATE DimCustomer SET [YearlyIncomeLevel]=
+	IIF([YearlyIncome]<=30000,1,
+		IIF([YearlyIncome]<=70000,2,
+			IIF([YearlyIncome]<100000,3,
+				IIF([YearlyIncome]<170000,4,0))));
+
+
+ALTER TABLE DimCustomer ADD [HasChild] NCHAR(1);
+UPDATE DimCustomer SET [HasChild]=IIF([TotalChildren]>0,'1','0');
+ALTER TABLE DimCustomer ADD [HasHouse] NCHAR(1);
+UPDATE DimCustomer SET [HasHouse]=[HouseOwnerFlag];
+ALTER TABLE DimCustomer ADD [HasCar] NCHAR(1);
+UPDATE DimCustomer SET [HasCar]=IIF([NumberCarsOwned]>0,'1','0');
+
+ALTER TABLE DimCustomer ALTER COLUMN [AgeLevel] NCHAR(1);
+ALTER TABLE DimCustomer ALTER COLUMN [YearlyIncomeLevel] NCHAR(1);
+
+
+UPDATE DimCustomer SET [HasChild]=NULL WHERE CustomerType='Company';
+UPDATE DimCustomer SET [HasCar]=NULL WHERE CustomerType='Company';
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SELECT 
+	[CustomerKey], B.ContinentName
+	,[BirthDate], [MaritalStatus], [Gender]
+	,[Education], [Occupation]
+	,[AgeLevel], [YearlyIncomeLevel], [HasChild], [HasHouse], [HasCar]
+INTO Contoso_Customer
+FROM DimCustomer AS A JOIN [dbo].[DimGeography] AS B
+	ON A.GeographyKey=B.GeographyKey
+WHERE CustomerType='Person';
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE StarTable
+(
+	id INT,
+	name_zh NVARCHAR(10),
+	name_en NVARCHAR(128),
+	s_time INT,
+	o_time INT
+);
+ 
+INSERT INTO StarTable
+VALUES
+	(10,N'魔羯座',N'Capricorn' ,1222 ,119),
+	(11,N'水瓶座',N'Aquarius' ,120 ,218),
+	(12,N'雙魚座',N'Pisces' ,219 ,320),
+	(1,N'牡羊座',N'Aries' ,321 ,420),
+	(2,N'金牛座',N'Taurus' ,421 ,520),
+	(3,N'双子座',N'Gemini' ,521 ,621),
+	(4,N'巨蟹座',N'Cancer' ,622 ,722),
+	(5,N'獅子座',N'Leo' ,723 ,822),
+	(6,N'處女座',N'Virgo' ,823 ,922),
+	(7,N'天秤座',N'Libra' ,923 ,1022),
+	(8,N'天蝎座',N'Scorpio' ,1023 ,1121),
+	(9,N'射手座',N'Sagittarius' ,1122 ,1221);
+
+SELECT * FROM StarTable;
+
+
+CREATE FUNCTION StarSign(@birthday DATETIME)
+RETURNS @tt TABLE
+(
+	id INT,
+    name_zh NVARCHAR(10),
+    name_en NVARCHAR(128),
+    s_time INT,
+    o_time INT
+)
+AS
+  BEGIN 
+
+	DECLARE @NowDate INT;
+	SELECT @NowDate = CONVERT(INT,FORMAT(@Birthday,'Mdd'))
+     
+	IF @NowDate >= 1222 OR @NowDate <= 119
+		BEGIN		
+			INSERT INTO @tt VALUES(10,N'魔羯座',N'Capricorn',1222,119);
+		END
+	ELSE
+		BEGIN		
+			INSERT INTO @tt
+				SELECT id,name_zh, name_en, s_time, o_time
+				FROM StarTable
+				WHERE @NowDate>=s_time AND @NowDate<=o_time;
+		END
+	RETURN
+  END
+GO	
+
+SELECT * FROM dbo.StarSign('1976/10/2');
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ALTER TABLE Customer ADD [Star] INT;
+UPDATE [Customer] SET [Star]=(SELECT [id] FROM dbo.StarSign([BirthDate]));
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SELECT * FROM Customer
+SELECT DISTINCT [ContinentName] FROM [Customer] 
+SELECT DISTINCT [Education] FROM [Customer]
+SELECT DISTINCT [Occupation] FROM [Customer]
+
+
+SELECT [CustomerKey]
+	, IIF([ContinentName]='Asia',3,IIF([ContinentName]='North America',1,2)) AS [ContinentName]
+	, IIF([MaritalStatus]='M',1,0) AS [MaritalStatus]
+	, IIF([Gender]='M',1,0) AS [Gender]
+	, CASE [Education]
+		WHEN 'High School' THEN 1
+		WHEN 'Partial High School' THEN 2
+		WHEN 'Partial College' THEN 3
+		WHEN 'Graduate Degree' THEN 4
+		WHEN 'Bachelors' THEN 5
+	  END AS [Education]
+	, CASE [Occupation]
+		WHEN 'Professional' THEN 1
+		WHEN 'Clerical' THEN 2
+		WHEN 'Manual' THEN 3
+		WHEN 'Management' THEN 4
+		WHEN 'Skilled Manual' THEN 5
+	  END AS [Occupation]
+	, CONVERT(INT,[AgeLevel]) AS [AgeLevel]
+	, CONVERT(INT,[YearlyIncomeLevel]) AS [YearlyIncomeLevel]
+	, CONVERT(INT,[HasChild]) AS [HasChild]
+	, CONVERT(INT,[HasHouse]) AS [HasHouse]
+	, CONVERT(INT,[HasCar]) AS [HasCar], [Star]
+--INTO NewCustomer
+FROM Customer
+
+SELECT * FROM NewCustomer;
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+https://docs.microsoft.com/zh-tw/sql/machine-learning/tutorials/python-clustering-model-prepare-data?view=sql-server-ver15
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DECLARE @sql_query NVARCHAR(MAX);
+SET @sql_query=N'SELECT [ContinentName], [MaritalStatus], [Gender], [Education], [Occupation]
+	, [AgeLevel], [YearlyIncomeLevel], [HasChild], [HasHouse], [HasCar], [Star] FROM NewCustomer'
+
+EXECUTE sp_execute_external_script @language = N'Python',  
+		@script = N'   
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+from scipy.spatial import distance as sci_distance
+from sklearn import cluster as sk_cluster
+
+cdata = customer_data
+K = range(1, 20)
+KM = (sk_cluster.KMeans(n_clusters=k).fit(cdata) for k in K)
+centroids = (k.cluster_centers_ for k in KM)
+
+D_k = (sci_distance.cdist(cdata, cent, "euclidean") for cent in centroids)
+dist = (np.min(D, axis=1) for D in D_k)
+avgWithinSS = [sum(d) / cdata.shape[0] for d in dist]
+plt.plot(K, avgWithinSS, "b*-")
+plt.grid(True)
+plt.xlabel("Number of clusters")
+plt.ylabel("Average within-cluster sum of squares")
+plt.title("Elbow for KMeans clustering")
+plt.savefig("c:\\PP\\K_Means_Test.png")
+'
+	,@input_data_1=@sql_query
+	,@input_data_1_name = N'customer_data'	
+;
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DECLARE @sql_query NVARCHAR(MAX);
+SET @sql_query=N'SELECT * FROM NewCustomer'
+
+EXECUTE sp_execute_external_script @language = N'R',  
+		@script = N'   
+
+	sqlData <- data.frame(InputDataSet)
+	cs<-colnames(sqlData)		#取出欄位名
+	frm<-paste("", paste(cs[2:length(cs)], collapse="+"), sep="~")
+	#print(frm)
+	z <- rxKmeans(~ContinentName+MaritalStatus+Gender+Education+Occupation+AgeLevel
+		+YearlyIncomeLevel+HasChild+HasHouse+HasCar+Star		
+		, data=sqlData, numClusters = 5, seed=12345)
+	#print(z)
+	#print(str(z))
+	OutputDataSet <- data.frame(cbind(sqlData$CustomerKey,z$cluster))
+	'
+	,@input_data_1=@sql_query	
+;
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--DROP TABLE #TT;
+CREATE TABLE #TT
+(
+    CustomerKey INT,
+	GroupId INT
+)
+GO
+
+DECLARE @sql_query NVARCHAR(MAX);
+SET @sql_query=N'SELECT * FROM NewCustomer'
+
+INSERT INTO #TT
+EXECUTE sp_execute_external_script @language = N'R',  
+		@script = N'   
+
+	sqlData <- data.frame(InputDataSet)
+	cs<-colnames(sqlData)		#取出欄位名
+	frm<-paste("", paste(cs[2:length(cs)], collapse="+"), sep="~")
+	#print(frm)
+	z <- rxKmeans(~ContinentName+MaritalStatus+Gender+Education+Occupation+AgeLevel
+		+YearlyIncomeLevel+HasChild+HasHouse+HasCar+Star		
+		, data=sqlData, numClusters = 9, seed=12345)
+	#print(z)
+	#print(str(z))
+	OutputDataSet <- data.frame(cbind(sqlData$CustomerKey,z$cluster))
+	'
+	,@input_data_1=@sql_query	
+;
+
+SELECT * FROM #TT
+
+SELECT * FROM NewCustomer
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

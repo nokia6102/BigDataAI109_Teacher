@@ -1,0 +1,53 @@
+Τ.挡篶
+EmployeeID Name 
+------------------
+1001 眎
+1002 
+1003 き
+Τ眎对
+EmployeeID Date
+----------------------
+1001 2007/03/24
+1002 2007/03/24
+1003 2007/03/24
+1001 2007/03/25
+1002 2007/03/25
+1001 2007/03/26
+1003 2007/03/26
+
+眖..き2007/03/25⊿Τ.2007/03/26⊿Τ.
+┮и稱眔戈癟:
+EmployeeID Date
+-----------------------
+1003 2007/03/25
+1002 2007/03/26
+
+
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+
+CREATE TABLE #
+(
+  絪腹 VARCHAR(4),
+  ﹎ NVARCHAR(10)
+)
+go
+CREATE TABLE #对
+(
+  絪腹 VARCHAR(4),
+  痁ら DATE
+)
+go
+
+INSERT INTO # VALUES('1001','眎')
+INSERT INTO # VALUES('1002','')
+INSERT INTO # VALUES('1003','き')
+
+INSERT INTO #对 VALUES('1001','2007/03/24')
+INSERT INTO #对 VALUES('1002','2007/03/24')
+INSERT INTO #对 VALUES('1003','2007/03/24')
+INSERT INTO #对 VALUES('1001','2007/03/25')
+INSERT INTO #对 VALUES('1002','2007/03/25')
+INSERT INTO #对 VALUES('1001','2007/03/26')
+INSERT INTO #对 VALUES('1003','2007/03/26')
+

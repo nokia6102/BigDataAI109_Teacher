@@ -1,0 +1,161 @@
+
+SELECT COUNT(*) FROM FactOnlineSales
+SELECT COUNT(*) FROM FactSales
+
+
+SELECT ProductKey,COUNT(*) AS 頻率
+FROM FactSales
+WHERE DateKey>='2008-1-1' AND DateKey<'2009-1-1'
+GROUP BY ProductKey
+ORDER BY 頻率 DESC
+
+SELECT ProductKey,COUNT(*) AS 頻率
+FROM FactOnlineSales
+WHERE DateKey>='2008-1-1' AND DateKey<'2009-1-1'
+GROUP BY ProductKey
+ORDER BY 頻率 DESC
+
+
+SELECT ProductKey,COUNT(DISTINCT CustomerKey) AS 頻率
+FROM FactOnlineSales
+WHERE DateKey>='2008-1-1' AND DateKey<'2009-1-1'
+GROUP BY ProductKey
+ORDER BY 頻率 DESC
+
+
+
+
+WITH SET [店面產品購買頻率排名]
+AS
+	NONEMPTY(ORDER({[Dim Product].[Product Key].MEMBERS-[Dim Product].[Product Key].[All]}
+		,[Measures].[店面銷售_計數],BDESC))
+
+SELECT NON EMPTY [Measures].[店面銷售_計數] ON COLUMNS
+	, NON EMPTY [店面產品購買頻率排名] ON ROWS
+FROM [ContosoRetail_Cube]
+WHERE ([Dim Date].[Calendar Year].&[2008])
+
+
+
+WITH SET [線上產品購買頻率排名]
+AS
+	NONEMPTY(ORDER({[Dim Product].[Product Key].MEMBERS-[Dim Product].[Product Key].[All]}
+		,[Measures].[線上銷售_計數],BDESC))
+
+SELECT NON EMPTY [Measures].[線上銷售_計數] ON COLUMNS
+	, NON EMPTY [線上產品購買頻率排名] ON ROWS
+FROM [ContosoRetail_Cube]
+WHERE ([Dim Date].[Calendar Year].&[2008])
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--FILTER( «Set», «Search Condition» )
+
+WITH SET [毛利超過100萬以上的產品中分類]
+AS
+	FILTER( {[Dim Product].[Product Subcategory Key].MEMBERS-[Dim Product].[Product Subcategory Key].[All]}
+		, [Measures].[線上銷售毛利]>10000000 )
+
+SELECT NON EMPTY [Measures].[線上銷售毛利] ON COLUMNS
+	, NON EMPTY [毛利超過100萬以上的產品中分類] ON ROWS
+FROM [ContosoRetail_Cube]
+WHERE ([Dim Customer].[Gender].&[],[Dim Date].[Calendar Year].&[2009])
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+WITH SET [購買該項產品的客戶編號]
+AS
+	 FILTER( {[Dim Customer].[Customer Key].MEMBERS-[Dim Customer].[Customer Key].[All]}
+		, [Dim Product].[Product Key].&[1706] )
+
+MEMBER [Measures].[客戶計數次數]
+AS
+	--[購買該項產品的客戶編號].COUNT
+	COUNT([購買該項產品的客戶編號])
+
+SELECT NON EMPTY [Measures].[客戶計數次數] ON COLUMNS
+	--, NON EMPTY {[Dim Product].[Product Key].MEMBERS-[Dim Product].[Product Key].[All]} ON ROWS
+	, NON EMPTY [Dim Product].[Product Key].&[1706] ON ROWS
+FROM [ContosoRetail_Cube]
+WHERE ([Dim Date].[Calendar Year].&[2008])
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+WITH SET [購買該類產品的客戶編號]
+AS
+	 FILTER( {[Dim Customer].[Customer Key].MEMBERS-[Dim Customer].[Customer Key].[All]}
+		, [Dim Product].[Product Subcategory Key].&[41] )
+
+MEMBER [Measures].[客戶計數次數]
+AS
+	COUNT([購買該類產品的客戶編號])	
+
+SELECT NON EMPTY [Measures].[客戶計數次數] ON COLUMNS
+	,[購買該類產品的客戶編號] ON ROWS
+FROM [ContosoRetail_Cube]
+WHERE ([Dim Date].[Calendar Year].&[2009])
+
+
+
+
+
+WITH SET [購買該類產品的客戶編號]
+AS	
+	 FILTER({[Dim Customer].[Customer Key].MEMBERS-[Dim Customer].[Customer Key].[All]}
+		, [Dim Product].[Product Subcategory Key].&[41] )	 
+
+SELECT NON EMPTY [Dim Product].[Product Subcategory Key].MEMBERS-[Dim Product].[Product Subcategory Key].[All] ON COLUMNS
+	,[購買該類產品的客戶編號] ON ROWS
+FROM [ContosoRetail_Cube]
+WHERE ([Dim Date].[Calendar Year].&[2009],[Measures].[線上銷售數量])
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+WITH SET [購買該類產品的客戶編號]
+AS	
+	 FILTER({[Dim Customer].[Customer Key].MEMBERS-[Dim Customer].[Customer Key].[All]}
+		, [Dim Product].[Product Subcategory Key].&[41] )	 
+
+MEMBER [Measures].[該類產品數量加總]
+AS
+	SUM([購買該類產品的客戶編號],[Measures].[線上銷售數量])
+
+SELECT NON EMPTY [Measures].[該類產品數量加總] ON COLUMNS
+	, NON EMPTY [Dim Product].[Product Subcategory Key].MEMBERS-[Dim Product].[Product Subcategory Key].[All] ON ROWS
+FROM [ContosoRetail_Cube]
+WHERE ([Dim Date].[Calendar Year].&[2009])
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+WITH MEMBER [Measures].[上月毛利]
+AS
+	([Dim Date].[Calendar Month].CURRENTMEMBER.PREVMEMBER,[Measures].[店面銷售毛利])
+
+SELECT { [Measures].[店面銷售毛利],[Measures].[上月毛利] } ON COLUMNS
+	,[Dim Date].[Calendar Month].MEMBERS ON ROWS
+FROM [ContosoRetail_Cube]
+WHERE [Dim Date].[Calendar Year].&[2008]
+
+
+
+--KPI
+
+--Value
+[Measures].[店面銷售毛利]
+
+--Goal
+([Dim Date].[Calendar Month].CURRENTMEMBER.PREVMEMBER,[Measures].[店面銷售毛利])
+
+--Status
+CASE
+	WHEN KPIVALUE("月毛利KPI")>KPIGOAL("月毛利KPI")*1.1 THEN 1
+	WHEN KPIVALUE("月毛利KPI")<KPIGOAL("月毛利KPI")*0.9 THEN -1
+	ELSE 0
+END
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

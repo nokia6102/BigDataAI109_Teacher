@@ -1,0 +1,296 @@
+
+https://yanwei-liu.medium.com/python%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86-%E4%BA%8C-%E4%BD%BF%E7%94%A8jieba%E9%80%B2%E8%A1%8C%E4%B8%AD%E6%96%87%E6%96%B7%E8%A9%9E-faf7828141a4
+https://blog.kennycoder.io/2020/02/12/Python-%E7%9F%A5%E5%90%8DJieba%E4%B8%AD%E6%96%87%E6%96%B7%E8%A9%9E%E5%B7%A5%E5%85%B7%E6%95%99%E5%AD%B8/
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+EXEC sp_execute_external_script  
+	@language = N'Python'  
+	, @script = N'
+import jieba
+#jieba.set_dictionary("dict.txt.big")
+
+sentence = "獨立音樂需要大家一起來推廣，歡迎加入我們的行列！"
+print ("Input：", sentence)
+words = jieba.cut(sentence, cut_all=False)
+print ("Output 精確模式 Full Mode：")
+for word in words:
+	print (word)
+'
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+EXEC sp_execute_external_script  
+	@language = N'Python'  
+	, @script = N'
+import jieba
+#jieba.set_dictionary("dict.txt.big")
+
+#讀入停用詞
+stopWords=[]
+with open("C:\\PP\\MyStopWords.txt", "r", encoding="UTF-8") as file:
+    for data in file.readlines():
+        data = data.strip()
+        stopWords.append(data)
+
+sentence = "獨立音樂需要大家一起來推廣，歡迎加入我們的行列！"
+print ("Input：", sentence)
+words = jieba.cut(sentence, cut_all=False)
+
+#比對停用詞，保留剩餘詞彙
+remainderWords=[]
+remainderWords = list(filter(lambda a: a not in stopWords and a != "\n", words))
+
+print(remainderWords)
+'
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+USE MyNews;
+
+--DROP TABLE MainCatalog;
+CREATE TABLE MainCatalog
+(
+    MainId INT PRIMARY KEY,
+	CatalogName NVARCHAR(20)
+);
+/*
+INSERT INTO MainCatalog VALUES(1,'政治'),(2,'科技'),(3,'財經'),(4,'健康'),(5,'運動');
+INSERT INTO MainCatalog VALUES(11,'非藍非綠'),(12,'綠營'),(13,'藍營')
+INSERT INTO MainCatalog VALUES(21,'手機'),(22,'電腦_遊戲'),(23,'天文')
+INSERT INTO MainCatalog VALUES(31,'房地產'),(32,'股市'),(33,'理財')
+INSERT INTO MainCatalog VALUES(41,'疾病'),(42,'減重'),(43,'養身')
+INSERT INTO MainCatalog VALUES(51,'棒球'),(52,'網球'),(53,'籃球')
+SELECT * FROM MainCatalog
+*/
+
+
+
+
+CREATE TABLE News
+(
+	NewsId INT IDENTITY PRIMARY KEY,
+	[Label] NVARCHAR(10),
+	[News] NVARCHAR(MAX)
+)
+
+--TRUNCATE TABLE News
+SELECT * FROM News
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DECLARE @sqlQuery nvarchar(max) = N'SELECT [News] FROM [News] WHERE [NewsId]=80'
+
+EXEC sp_execute_external_script @language = N'Python'  
+	, @script = N'
+import jieba
+import pandas as pd
+
+stopWords=[]
+with open("C:\\PP\\MyStopWords.txt", "r", encoding="UTF-8") as file:
+    for data in file.readlines():
+        data = data.strip()
+        stopWords.append(data)
+
+#載入自訂關鍵字
+jieba.load_userdict("C:\\PP\\MyKeyWords.txt")
+
+train_data = InputDataSet
+df=pd.DataFrame(train_data)
+sentence=df.iloc[0,0]
+words = jieba.cut(sentence, cut_all=False)
+
+remainderWords=[]
+remainderWords = list(filter(lambda a: a not in stopWords and a!= "\n" and a!="\r\n" and a!=" ", words))
+
+#移除數值文字
+for ss in remainderWords:
+	try:
+		f=float(ss)  
+		remainderWords.remove(ss)		
+	except ValueError:
+		continue
+
+OutputDataSet=pd.DataFrame(remainderWords)
+
+#print ("Output 精確模式 Full Mode：")
+#for w in remainderWords:
+#	print (w)
+'
+, @input_data_1 = @sqlQuery
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ALTER PROC KeyWordToJson @id INT,@result NVARCHAR(1024) OUTPUT
+AS
+	CREATE TABLE #TT
+	(
+		[KeyWord] NVARCHAR(100)
+	);
+	DECLARE @sqlQuery nvarchar(max) = CONCAT(N'SELECT [News] FROM [News] WHERE [NewsId]=',@id)
+
+	INSERT INTO #TT
+	EXEC sp_execute_external_script @language = N'Python'  
+		, @script = N'
+import jieba
+import pandas as pd
+
+stopWords=[]
+with open("C:\\PP\\MyStopWords.txt", "r", encoding="UTF-8") as file:
+	for data in file.readlines():
+		data = data.strip()
+		stopWords.append(data)
+
+#載入自訂關鍵字
+jieba.load_userdict("C:\\PP\\MyKeyWords.txt")
+
+train_data = InputDataSet
+df=pd.DataFrame(train_data)
+sentence=df.iloc[0,0]
+words = jieba.cut(sentence, cut_all=False)
+
+remainderWords=[]
+remainderWords = list(filter(lambda a: a not in stopWords and a!= "\n" and a!="\r\n" and a!=" ", words))
+
+#移除數值文字
+for ss in remainderWords:
+	try:
+		f=float(ss)  
+		remainderWords.remove(ss)		
+	except ValueError:
+		continue
+
+OutputDataSet=pd.DataFrame(remainderWords)	
+'
+	, @input_data_1 = @sqlQuery;
+	
+	SET @result=( SELECT [KeyWord],COUNT(*) AS Cnt
+		FROM #TT
+		GROUP BY [KeyWord]
+		HAVING COUNT(*)>=2
+		ORDER BY Cnt DESC
+		FOR JSON AUTO
+	);
+	DROP TABLE #TT;
+GO
+
+DECLARE @ans NVARCHAR(1024);
+EXEC [KeyWordToJson] 60,@ans OUTPUT;
+SELECT @ans
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SELECT * FROM [News];
+
+ALTER TABLE [News] ADD [KeyWords] NVARCHAR(1024);
+
+
+DECLARE @id INT=1;
+DECLARE @ans NVARCHAR(MAX);
+EXEC [KeyWordToJson] @id,@ans OUTPUT;
+UPDATE [News] SET [KeyWords]=@ans WHERE [NewsId]=@id;
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DECLARE @jj NVARCHAR(1024);
+SELECT @jj=[KeyWords] FROM [News] WHERE [NewsId]=210;
+SELECT * FROM OPENJSON(@jj)
+WITH(
+	[KeyWords] NVARCHAR(10) '$.KeyWord',
+	[Cnt] INT '$.Cnt'
+)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE FUNCTION GetKeyWords(@id INT) 
+RETURNS @tt TABLE
+(
+	[KeyWords] NVARCHAR(10),  
+    [Cnts] INT
+)
+AS
+  BEGIN
+	DECLARE @json NVARCHAR(MAX)	
+	SELECT @json=[KeyWords] FROM [News] WHERE [NewsId]=@id;
+	INSERT INTO @tt
+	SELECT * FROM OPENJSON(@json)
+	WITH(
+		[KeyWords] NVARCHAR(10) '$.KeyWord',
+		[Cnt] INT '$.Cnt'
+	)
+	RETURN;
+  END
+GO
+
+
+
+SELECT * FROM News
+SELECT * FROM GetKeyWords(4)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+SELECT B.KeyWords,B.[Cnts] AS [Total]
+FROM [News] AS A CROSS APPLY GetKeyWords(A.NewsId) AS B
+WHERE SUBSTRING(A.Label,1,1)='1'
+*/
+
+SELECT B.KeyWords,SUM(B.[Cnts]) AS [Total]
+FROM [News] AS A CROSS APPLY GetKeyWords(A.NewsId) AS B
+WHERE SUBSTRING(A.Label,1,1)='5' AND LEN(B.KeyWords)>1
+GROUP BY B.[KeyWords]
+ORDER BY [Total] DESC
+
+SELECT B.KeyWords,SUM(B.[Cnts]) AS [Total]
+FROM [News] AS A CROSS APPLY GetKeyWords(A.NewsId) AS B
+WHERE A.Label='5.2' AND LEN(B.KeyWords)>1
+GROUP BY B.[KeyWords]
+ORDER BY [Total] DESC
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--pip.exe install WordCloud
+--文字雲
+
+
+--DROP TABLE #Temp
+SELECT B.KeyWords,SUM(B.[Cnts]) AS [TotalCnt]
+INTO #Temp
+FROM [News] AS A CROSS APPLY GetKeyWords(A.NewsId) AS B
+WHERE SUBSTRING(A.Label,1,1)='3' AND LEN(B.KeyWords)>1
+GROUP BY B.[KeyWords]
+HAVING SUM(B.[Cnts])>=20
+
+--SELECT * FROM #Temp ORDER BY [TotalCnt] DESC
+
+
+
+EXEC sp_execute_external_script  
+	@language = N'Python'  
+	, @script = N'
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud
+import pandas as pd
+
+input_data = InputDataSet
+df=pd.DataFrame(input_data)
+nn = list(df.KeyWords)
+vv = list(df.TotalCnt)
+my_dict=dict(zip(nn,vv))
+
+#設定中文字體
+font_path = "C:\Windows\Fonts\kaiu.ttf"  
+
+wc = WordCloud(font_path = font_path,width = 800, height = 800,background_color ="white",stopwords=None,min_font_size = 10)
+wc.generate_from_frequencies(my_dict)
+wc.to_file("C:\\PP\\p3.png")
+'
+, @input_data_1 = N'SELECT [KeyWords],[TotalCnt] FROM #Temp'
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

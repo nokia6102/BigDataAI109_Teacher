@@ -1,0 +1,1280 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/28/2020 4:05:51 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="Teacher"
+  DTS:CreatorName="Teacher\User"
+  DTS:DTSID="{9A234B49-44E1-4D66-BA04-3CEC35A19FBD}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.132"
+  DTS:LocaleID="1028"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{43052217-BA8E-405C-B7B2-17FDCA99BAAA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.中文北風]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B92A3DC1-94A8-48D8-A308-CA723AF68837}"
+      DTS:ObjectName="localhost.中文北風">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=中文北風;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[中價位檔案連接]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{B19CD104-14EC-4FED-8C85-48C950AAF889}"
+      DTS:ObjectName="中價位檔案連接">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1028"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="950"
+          DTS:ConnectionString="C:\BB\中價位.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="產品編號"
+              DTS:DTSID="{558959A7-27CB-4F4D-B836-F953C6396E20}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="40"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="產品"
+              DTS:DTSID="{8311BCDD-337C-456E-A2DE-C6B1AE66F977}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="供應商編號"
+              DTS:DTSID="{AD0F960D-0F01-4342-9178-4B4318A7B255}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="類別編號"
+              DTS:DTSID="{7714F474-1FEA-452F-9045-66118503A30B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="單位數量"
+              DTS:DTSID="{58F40269-BBD8-47DD-BA44-8EBBCC56E9B4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="6"
+              DTS:TextQualified="True"
+              DTS:ObjectName="單價"
+              DTS:DTSID="{17976F1A-397A-4F56-967C-E88E19435803}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="庫存量"
+              DTS:DTSID="{8E31ED8A-3B63-40B3-B062-D7A181FC0F87}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="已訂購量"
+              DTS:DTSID="{F89F7B5E-D69D-4CB2-83FD-CA589C7F62C1}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[低價位檔案連接]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{5D15D342-8B4F-4B50-8FC0-461B0F77F63F}"
+      DTS:ObjectName="低價位檔案連接">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1028"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="950"
+          DTS:ConnectionString="C:\BB\低價位.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="產品編號"
+              DTS:DTSID="{EECF5899-0EAD-4A7B-BEA4-16AED300240A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="40"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="產品"
+              DTS:DTSID="{A4F06AC3-FF23-44F1-ACDA-5CEAFBDB130E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="供應商編號"
+              DTS:DTSID="{E0A7BC57-8CBE-46E3-AFA7-F26F27F8E04F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="類別編號"
+              DTS:DTSID="{7F32C686-5EF8-410A-BA21-D9CF5E56C62B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="單位數量"
+              DTS:DTSID="{8ADD50B1-8956-4DE5-9E67-2C9444FBF751}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="6"
+              DTS:TextQualified="True"
+              DTS:ObjectName="單價"
+              DTS:DTSID="{C0126A91-BD5D-4D97-BEDF-77C3BF221F06}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="庫存量"
+              DTS:DTSID="{0375828E-1A67-49CF-9DE1-C04AC44FBA53}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="已訂購量"
+              DTS:DTSID="{6E8B05AC-7D97-4CFE-A26F-EFB6618B4EC5}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[高價位檔案連接]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{BCE65E6B-E56A-46EA-946B-BBA28CDEEFAE}"
+      DTS:ObjectName="高價位檔案連接">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1028"
+          DTS:Unicode="True"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="950"
+          DTS:ConnectionString="C:\BB\高價位.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="產品編號"
+              DTS:DTSID="{4C66D216-6FD0-4E5C-8910-05A975541AB8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="40"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="產品"
+              DTS:DTSID="{5012584E-F300-44F0-A9D8-C1D8214BE0F7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="供應商編號"
+              DTS:DTSID="{EE9458F9-0569-4E24-ADE2-A64FD5192440}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="類別編號"
+              DTS:DTSID="{71693804-43B7-405B-ADC1-21C88CC28F07}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="單位數量"
+              DTS:DTSID="{29C3EFA0-2C27-48FB-8375-99D2C0391F83}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="6"
+              DTS:TextQualified="True"
+              DTS:ObjectName="單價"
+              DTS:DTSID="{0EFA71C7-1ECE-4408-ABF5-251865162A13}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="庫存量"
+              DTS:DTSID="{13E47514-306B-43E9-903D-F8BEF5BACF35}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="已訂購量"
+              DTS:DTSID="{BBDF4F25-D035-4B76-B3A0-33FDB9AC5D3A}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\匯出北風產品(分流)"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="資料流程工作"
+      DTS:DTSID="{8BB5B711-59A1-4AD9-941E-E98CA62A6686}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="匯出北風產品(分流)"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\匯出北風產品(分流)\OLE DB 來源"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB 來源;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;7"
+              description="OLE DB 來源"
+              name="OLE DB 來源"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="命令逾時之前的秒數。值為 0 表示無限逾時。"
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="指定用於開啟資料列集之資料庫物件的名稱。"
+                  name="OpenRowset">[dbo].[產品資料]</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含用於開啟資料列集之資料庫物件名稱的變數。"
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="要執行的 SQL 命令。"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="包含要執行之 SQL 命令的變數。"
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="指定無法從資料來源取得字碼頁資訊時，要使用的資料行字碼頁。"
+                  name="DefaultCodePage">950</property>
+                <property
+                  dataType="System.Boolean"
+                  description="描述字元資料時，強制使用 DefaultCodePage 屬性值。"
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用於存取資料庫的模式。"
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="SQL 命令中的參數和變數之間的對應。"
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\匯出北風產品(分流)\OLE DB 來源.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.中文北風]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.中文北風]"
+                  description="用於存取資料庫的 OLE DB 執行階段連接。"
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出]"
+                  name="OLE DB 來源輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[產品編號]"
+                      dataType="i4"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[產品編號]"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[產品編號]"
+                      name="產品編號"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[產品]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[產品]"
+                      length="40"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[產品]"
+                      name="產品"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[供應商編號]"
+                      dataType="i4"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[供應商編號]"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[供應商編號]"
+                      name="供應商編號"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[類別編號]"
+                      dataType="i4"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[類別編號]"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[類別編號]"
+                      name="類別編號"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[單位數量]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[單位數量]"
+                      length="20"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[單位數量]"
+                      name="單位數量"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[單價]"
+                      dataType="cy"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[單價]"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[單價]"
+                      name="單價"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[庫存量]"
+                      dataType="i2"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[庫存量]"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[庫存量]"
+                      name="庫存量"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[已訂購量]"
+                      dataType="i2"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[已訂購量]"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[已訂購量]"
+                      name="已訂購量"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[產品編號]"
+                      dataType="i4"
+                      name="產品編號" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[產品]"
+                      dataType="wstr"
+                      length="40"
+                      name="產品" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[供應商編號]"
+                      dataType="i4"
+                      name="供應商編號" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[類別編號]"
+                      dataType="i4"
+                      name="類別編號" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[單位數量]"
+                      dataType="wstr"
+                      length="20"
+                      name="單位數量" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[單價]"
+                      dataType="cy"
+                      name="單價" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[庫存量]"
+                      dataType="i2"
+                      name="庫存量" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[已訂購量]"
+                      dataType="i2"
+                      name="已訂購量" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[安全存量]"
+                      dataType="i2"
+                      name="安全存量" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[不再銷售]"
+                      dataType="bool"
+                      name="不再銷售" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[產品圖片]"
+                      dataType="image"
+                      name="產品圖片" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出]"
+                  isErrorOut="true"
+                  name="OLE DB 來源錯誤輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[產品編號]"
+                      dataType="i4"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[產品編號]"
+                      name="產品編號" />
+                    <outputColumn
+                      refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[產品]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[產品]"
+                      name="產品" />
+                    <outputColumn
+                      refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[供應商編號]"
+                      dataType="i4"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[供應商編號]"
+                      name="供應商編號" />
+                    <outputColumn
+                      refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[類別編號]"
+                      dataType="i4"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[類別編號]"
+                      name="類別編號" />
+                    <outputColumn
+                      refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[單位數量]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[單位數量]"
+                      name="單位數量" />
+                    <outputColumn
+                      refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[單價]"
+                      dataType="cy"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[單價]"
+                      name="單價" />
+                    <outputColumn
+                      refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[庫存量]"
+                      dataType="i2"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[庫存量]"
+                      name="庫存量" />
+                    <outputColumn
+                      refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[已訂購量]"
+                      dataType="i2"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[已訂購量]"
+                      name="已訂購量" />
+                    <outputColumn
+                      refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\匯出北風產品(分流)\中價位文字檔"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="一般檔案目的地;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;1"
+              description="一般檔案目的地"
+              localeId="1028"
+              name="中價位文字檔"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="指定資料將會覆寫或附加至目的地檔案。"
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="指定寫入任何資料之前，要寫入目的地檔案的文字。"
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="如有啟用文字限定詞，請指定寫入目的地檔案之資料中的文字限定詞是否需要逸出。"
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\匯出北風產品(分流)\中價位文字檔.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[中價位檔案連接]"
+                  connectionManagerRefId="Package.ConnectionManagers[中價位檔案連接]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\匯出北風產品(分流)\中價位文字檔.Inputs[一般檔案目的地輸入]"
+                  hasSideEffects="true"
+                  name="一般檔案目的地輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\匯出北風產品(分流)\中價位文字檔.Inputs[一般檔案目的地輸入].Columns[產品編號]"
+                      cachedDataType="i4"
+                      cachedName="產品編號"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\中價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[產品編號]"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[產品編號]" />
+                    <inputColumn
+                      refId="Package\匯出北風產品(分流)\中價位文字檔.Inputs[一般檔案目的地輸入].Columns[產品]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="產品"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\中價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[產品]"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[產品]" />
+                    <inputColumn
+                      refId="Package\匯出北風產品(分流)\中價位文字檔.Inputs[一般檔案目的地輸入].Columns[供應商編號]"
+                      cachedDataType="i4"
+                      cachedName="供應商編號"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\中價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[供應商編號]"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[供應商編號]" />
+                    <inputColumn
+                      refId="Package\匯出北風產品(分流)\中價位文字檔.Inputs[一般檔案目的地輸入].Columns[類別編號]"
+                      cachedDataType="i4"
+                      cachedName="類別編號"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\中價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[類別編號]"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[類別編號]" />
+                    <inputColumn
+                      refId="Package\匯出北風產品(分流)\中價位文字檔.Inputs[一般檔案目的地輸入].Columns[單位數量]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="單位數量"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\中價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[單位數量]"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[單位數量]" />
+                    <inputColumn
+                      refId="Package\匯出北風產品(分流)\中價位文字檔.Inputs[一般檔案目的地輸入].Columns[單價]"
+                      cachedDataType="cy"
+                      cachedName="單價"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\中價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[單價]"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[單價]" />
+                    <inputColumn
+                      refId="Package\匯出北風產品(分流)\中價位文字檔.Inputs[一般檔案目的地輸入].Columns[庫存量]"
+                      cachedDataType="i2"
+                      cachedName="庫存量"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\中價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[庫存量]"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[庫存量]" />
+                    <inputColumn
+                      refId="Package\匯出北風產品(分流)\中價位文字檔.Inputs[一般檔案目的地輸入].Columns[已訂購量]"
+                      cachedDataType="i2"
+                      cachedName="已訂購量"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\中價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[已訂購量]"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[已訂購量]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\中價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[產品編號]"
+                      dataType="i4"
+                      name="產品編號" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\中價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[產品]"
+                      dataType="wstr"
+                      length="40"
+                      name="產品" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\中價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[供應商編號]"
+                      dataType="i4"
+                      name="供應商編號" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\中價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[類別編號]"
+                      dataType="i4"
+                      name="類別編號" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\中價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[單位數量]"
+                      dataType="wstr"
+                      length="20"
+                      name="單位數量" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\中價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[單價]"
+                      dataType="cy"
+                      name="單價" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\中價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[庫存量]"
+                      dataType="i2"
+                      name="庫存量" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\中價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[已訂購量]"
+                      dataType="i2"
+                      name="已訂購量" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\匯出北風產品(分流)\低價位文字檔"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="一般檔案目的地;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;1"
+              description="一般檔案目的地"
+              localeId="1028"
+              name="低價位文字檔"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="指定資料將會覆寫或附加至目的地檔案。"
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="指定寫入任何資料之前，要寫入目的地檔案的文字。"
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="如有啟用文字限定詞，請指定寫入目的地檔案之資料中的文字限定詞是否需要逸出。"
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\匯出北風產品(分流)\低價位文字檔.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[低價位檔案連接]"
+                  connectionManagerRefId="Package.ConnectionManagers[低價位檔案連接]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\匯出北風產品(分流)\低價位文字檔.Inputs[一般檔案目的地輸入]"
+                  hasSideEffects="true"
+                  name="一般檔案目的地輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\匯出北風產品(分流)\低價位文字檔.Inputs[一般檔案目的地輸入].Columns[產品編號]"
+                      cachedDataType="i4"
+                      cachedName="產品編號"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\低價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[產品編號]"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[產品編號]" />
+                    <inputColumn
+                      refId="Package\匯出北風產品(分流)\低價位文字檔.Inputs[一般檔案目的地輸入].Columns[產品]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="產品"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\低價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[產品]"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[產品]" />
+                    <inputColumn
+                      refId="Package\匯出北風產品(分流)\低價位文字檔.Inputs[一般檔案目的地輸入].Columns[供應商編號]"
+                      cachedDataType="i4"
+                      cachedName="供應商編號"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\低價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[供應商編號]"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[供應商編號]" />
+                    <inputColumn
+                      refId="Package\匯出北風產品(分流)\低價位文字檔.Inputs[一般檔案目的地輸入].Columns[類別編號]"
+                      cachedDataType="i4"
+                      cachedName="類別編號"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\低價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[類別編號]"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[類別編號]" />
+                    <inputColumn
+                      refId="Package\匯出北風產品(分流)\低價位文字檔.Inputs[一般檔案目的地輸入].Columns[單位數量]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="單位數量"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\低價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[單位數量]"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[單位數量]" />
+                    <inputColumn
+                      refId="Package\匯出北風產品(分流)\低價位文字檔.Inputs[一般檔案目的地輸入].Columns[單價]"
+                      cachedDataType="cy"
+                      cachedName="單價"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\低價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[單價]"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[單價]" />
+                    <inputColumn
+                      refId="Package\匯出北風產品(分流)\低價位文字檔.Inputs[一般檔案目的地輸入].Columns[庫存量]"
+                      cachedDataType="i2"
+                      cachedName="庫存量"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\低價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[庫存量]"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[庫存量]" />
+                    <inputColumn
+                      refId="Package\匯出北風產品(分流)\低價位文字檔.Inputs[一般檔案目的地輸入].Columns[已訂購量]"
+                      cachedDataType="i2"
+                      cachedName="已訂購量"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\低價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[已訂購量]"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[已訂購量]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\低價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[產品編號]"
+                      dataType="i4"
+                      name="產品編號" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\低價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[產品]"
+                      dataType="wstr"
+                      length="40"
+                      name="產品" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\低價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[供應商編號]"
+                      dataType="i4"
+                      name="供應商編號" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\低價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[類別編號]"
+                      dataType="i4"
+                      name="類別編號" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\低價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[單位數量]"
+                      dataType="wstr"
+                      length="20"
+                      name="單位數量" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\低價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[單價]"
+                      dataType="cy"
+                      name="單價" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\低價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[庫存量]"
+                      dataType="i2"
+                      name="庫存量" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\低價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[已訂購量]"
+                      dataType="i2"
+                      name="已訂購量" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\匯出北風產品(分流)\條件式分割"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="條件式分割;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;0"
+              description="依據資料內容將資料列路由到不同的輸出。使用條件 (SSIS 運算式) 指定要路由哪些資料列。例如，從準備要載入的記錄區隔需要清除的記錄，或是僅路由記錄的子集。"
+              name="條件式分割"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\匯出北風產品(分流)\條件式分割.Inputs[條件式分割輸入]"
+                  description="輸入至條件式分割轉換"
+                  name="條件式分割輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\匯出北風產品(分流)\條件式分割.Inputs[條件式分割輸入].Columns[單價]"
+                      cachedDataType="cy"
+                      cachedName="單價"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[單價]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\匯出北風產品(分流)\條件式分割.Outputs[高價位]"
+                  description="條件式分割轉換的輸出 1"
+                  errorOrTruncationOperation="計算"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="高價位"
+                  synchronousInputId="Package\匯出北風產品(分流)\條件式分割.Inputs[條件式分割輸入]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="指定運算式。此運算式版本使用譜系識別碼，而非資料行名稱。"
+                      name="Expression">#{Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[單價]} &gt;= 50</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="指定運算式的易記版本。此運算式版本使用資料行名稱。"
+                      expressionType="Notify"
+                      name="FriendlyExpression">[單價] &gt;= 50</property>
+                    <property
+                      dataType="System.Int32"
+                      description="指定轉換評估的條件在條件清單中的位置。評估順序是從最低到最高值。"
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\匯出北風產品(分流)\條件式分割.Outputs[低價位]"
+                  description="條件式分割轉換的輸出 2"
+                  errorOrTruncationOperation="計算"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="低價位"
+                  synchronousInputId="Package\匯出北風產品(分流)\條件式分割.Inputs[條件式分割輸入]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="指定運算式。此運算式版本使用譜系識別碼，而非資料行名稱。"
+                      name="Expression">#{Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[單價]} &lt; 20</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="指定運算式的易記版本。此運算式版本使用資料行名稱。"
+                      expressionType="Notify"
+                      name="FriendlyExpression">[單價] &lt; 20</property>
+                    <property
+                      dataType="System.Int32"
+                      description="指定轉換評估的條件在條件清單中的位置。評估順序是從最低到最高值。"
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\匯出北風產品(分流)\條件式分割.Outputs[中價位]"
+                  description="條件式分割轉換的預設輸出"
+                  exclusionGroup="1"
+                  name="中價位"
+                  synchronousInputId="Package\匯出北風產品(分流)\條件式分割.Inputs[條件式分割輸入]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\匯出北風產品(分流)\條件式分割.Outputs[條件式分割錯誤輸出]"
+                  description="條件式分割轉換的錯誤輸出"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="條件式分割錯誤輸出"
+                  synchronousInputId="Package\匯出北風產品(分流)\條件式分割.Inputs[條件式分割輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\匯出北風產品(分流)\條件式分割.Outputs[條件式分割錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\匯出北風產品(分流)\條件式分割.Outputs[條件式分割錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\匯出北風產品(分流)\條件式分割.Outputs[條件式分割錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\匯出北風產品(分流)\條件式分割.Outputs[條件式分割錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\匯出北風產品(分流)\高價位文字檔"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="一般檔案目的地;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;1"
+              description="一般檔案目的地"
+              localeId="1028"
+              name="高價位文字檔"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="指定資料將會覆寫或附加至目的地檔案。"
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="指定寫入任何資料之前，要寫入目的地檔案的文字。"
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="如有啟用文字限定詞，請指定寫入目的地檔案之資料中的文字限定詞是否需要逸出。"
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\匯出北風產品(分流)\高價位文字檔.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[高價位檔案連接]"
+                  connectionManagerRefId="Package.ConnectionManagers[高價位檔案連接]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\匯出北風產品(分流)\高價位文字檔.Inputs[一般檔案目的地輸入]"
+                  hasSideEffects="true"
+                  name="一般檔案目的地輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\匯出北風產品(分流)\高價位文字檔.Inputs[一般檔案目的地輸入].Columns[產品編號]"
+                      cachedDataType="i4"
+                      cachedName="產品編號"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\高價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[產品編號]"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[產品編號]" />
+                    <inputColumn
+                      refId="Package\匯出北風產品(分流)\高價位文字檔.Inputs[一般檔案目的地輸入].Columns[產品]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="產品"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\高價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[產品]"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[產品]" />
+                    <inputColumn
+                      refId="Package\匯出北風產品(分流)\高價位文字檔.Inputs[一般檔案目的地輸入].Columns[供應商編號]"
+                      cachedDataType="i4"
+                      cachedName="供應商編號"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\高價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[供應商編號]"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[供應商編號]" />
+                    <inputColumn
+                      refId="Package\匯出北風產品(分流)\高價位文字檔.Inputs[一般檔案目的地輸入].Columns[類別編號]"
+                      cachedDataType="i4"
+                      cachedName="類別編號"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\高價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[類別編號]"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[類別編號]" />
+                    <inputColumn
+                      refId="Package\匯出北風產品(分流)\高價位文字檔.Inputs[一般檔案目的地輸入].Columns[單位數量]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="單位數量"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\高價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[單位數量]"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[單位數量]" />
+                    <inputColumn
+                      refId="Package\匯出北風產品(分流)\高價位文字檔.Inputs[一般檔案目的地輸入].Columns[單價]"
+                      cachedDataType="cy"
+                      cachedName="單價"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\高價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[單價]"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[單價]" />
+                    <inputColumn
+                      refId="Package\匯出北風產品(分流)\高價位文字檔.Inputs[一般檔案目的地輸入].Columns[庫存量]"
+                      cachedDataType="i2"
+                      cachedName="庫存量"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\高價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[庫存量]"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[庫存量]" />
+                    <inputColumn
+                      refId="Package\匯出北風產品(分流)\高價位文字檔.Inputs[一般檔案目的地輸入].Columns[已訂購量]"
+                      cachedDataType="i2"
+                      cachedName="已訂購量"
+                      externalMetadataColumnId="Package\匯出北風產品(分流)\高價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[已訂購量]"
+                      lineageId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[已訂購量]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\高價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[產品編號]"
+                      dataType="i4"
+                      name="產品編號" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\高價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[產品]"
+                      dataType="wstr"
+                      length="40"
+                      name="產品" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\高價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[供應商編號]"
+                      dataType="i4"
+                      name="供應商編號" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\高價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[類別編號]"
+                      dataType="i4"
+                      name="類別編號" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\高價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[單位數量]"
+                      dataType="wstr"
+                      length="20"
+                      name="單位數量" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\高價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[單價]"
+                      dataType="cy"
+                      name="單價" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\高價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[庫存量]"
+                      dataType="i2"
+                      name="庫存量" />
+                    <externalMetadataColumn
+                      refId="Package\匯出北風產品(分流)\高價位文字檔.Inputs[一般檔案目的地輸入].ExternalColumns[已訂購量]"
+                      dataType="i2"
+                      name="已訂購量" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\匯出北風產品(分流).Paths[OLE DB 來源輸出]"
+              endId="Package\匯出北風產品(分流)\條件式分割.Inputs[條件式分割輸入]"
+              name="OLE DB 來源輸出"
+              startId="Package\匯出北風產品(分流)\OLE DB 來源.Outputs[OLE DB 來源輸出]" />
+            <path
+              refId="Package\匯出北風產品(分流).Paths[中價位]"
+              endId="Package\匯出北風產品(分流)\中價位文字檔.Inputs[一般檔案目的地輸入]"
+              name="中價位"
+              startId="Package\匯出北風產品(分流)\條件式分割.Outputs[中價位]" />
+            <path
+              refId="Package\匯出北風產品(分流).Paths[低價位]"
+              endId="Package\匯出北風產品(分流)\低價位文字檔.Inputs[一般檔案目的地輸入]"
+              name="低價位"
+              startId="Package\匯出北風產品(分流)\條件式分割.Outputs[低價位]" />
+            <path
+              refId="Package\匯出北風產品(分流).Paths[高價位]"
+              endId="Package\匯出北風產品(分流)\高價位文字檔.Inputs[一般檔案目的地輸入]"
+              name="高價位"
+              startId="Package\匯出北風產品(分流)\條件式分割.Outputs[高價位]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--此 CDATA 區段包含封裝的配置資訊。此區段包括諸如 (x,y) 座標、寬度和長度等資訊。-->
+<!--如果您手動編輯此區段但出錯，則可加以刪除。 -->
+<!--封裝仍可正常載入，但先前的配置資訊會遺失，而設計師將在設計介面上自動重新排列元素。-->
+<Objects
+  Version="8">
+  <!--下面每個節點將包含不會影響執行階段行為的屬性。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="183,42"
+          Id="Package\匯出北風產品(分流)"
+          TopLeft="342.499986390273,100.285709162148" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\匯出北風產品(分流)">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\匯出北風產品(分流)\OLE DB 來源"
+          TopLeft="348.333319491811,48.285711818812" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\匯出北風產品(分流)\條件式分割"
+          TopLeft="363.333318895764,168.999991365842" />
+        <EdgeLayout
+          Id="Package\匯出北風產品(分流).Paths[OLE DB 來源輸出]"
+          TopLeft="423.333319491811,90.285711818812">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.49999940395355,78.7142795470299"
+              Start="0,0"
+              End="9.49999940395355,71.2142795470299">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.357139773515" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.357139773515"
+                    Point2="0,39.357139773515"
+                    Point3="4,39.357139773515" />
+                  <mssgle:LineSegment
+                    End="5.49999940395355,39.357139773515" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.49999940395355,39.357139773515"
+                    Point2="9.49999940395355,39.357139773515"
+                    Point3="9.49999940395355,43.357139773515" />
+                  <mssgle:LineSegment
+                    End="9.49999940395355,71.2142795470299" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="151,42"
+          Id="Package\匯出北風產品(分流)\低價位文字檔"
+          TopLeft="177.499992946784,311.999984060016" />
+        <EdgeLayout
+          Id="Package\匯出北風產品(分流).Paths[低價位]"
+          TopLeft="400.083318895764,210.999991365842">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-147.08332594898,100.999992694174"
+              Start="0,0"
+              End="-147.08332594898,93.499992694174">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.9341151201025" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.9341151201025"
+                    Point2="0,34.9341151201025"
+                    Point3="-4,34.9341151201025" />
+                  <mssgle:LineSegment
+                    End="-143.08332594898,34.9341151201025" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-143.08332594898,34.9341151201025"
+                    Point2="-147.08332594898,34.9341151201025"
+                    Point3="-147.08332594898,38.9341151201025" />
+                  <mssgle:LineSegment
+                    End="-147.08332594898,93.499992694174" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-88.9459598494902,39.9341151201025,30.80859375,10.8525390625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="151,42"
+          Id="Package\匯出北風產品(分流)\中價位文字檔"
+          TopLeft="367.499985396863,328.714268920374" />
+        <EdgeLayout
+          Id="Package\匯出北風產品(分流).Paths[中價位]"
+          TopLeft="432.833318895764,210.999991365842">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.1666665010982,117.714277554532"
+              Start="0,0"
+              End="10.1666665010982,110.214277554532">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.8571387772659" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,54.8571387772659"
+                    Point2="0,58.8571387772659"
+                    Point3="4,58.8571387772659" />
+                  <mssgle:LineSegment
+                    End="6.16666650109823,58.8571387772659" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.16666650109823,58.8571387772659"
+                    Point2="10.1666665010982,58.8571387772659"
+                    Point3="10.1666665010982,62.8571387772659" />
+                  <mssgle:LineSegment
+                    End="10.1666665010982,110.214277554532" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-9.99625659320088,63.8571387772659,30.1591796875,10.8525390625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="151,42"
+          Id="Package\匯出北風產品(分流)\高價位文字檔"
+          TopLeft="580.833310253091,304.571413010968" />
+        <EdgeLayout
+          Id="Package\匯出北風產品(分流).Paths[高價位]"
+          TopLeft="465.583318895764,210.999991365842">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="190.749991357327,93.5714216451259"
+              Start="0,0"
+              End="190.749991357327,86.0714216451259">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.3647034866671" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.3647034866671"
+                    Point2="0,32.3647034866671"
+                    Point3="4,32.3647034866671" />
+                  <mssgle:LineSegment
+                    End="186.749991357327,32.3647034866671" />
+                  <mssgle:CubicBezierSegment
+                    Point1="186.749991357327,32.3647034866671"
+                    Point2="190.749991357327,32.3647034866671"
+                    Point3="190.749991357327,36.3647034866671" />
+                  <mssgle:LineSegment
+                    End="190.749991357327,86.0714216451259" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="80.0854448974135,37.3647034866671,30.5791015625,10.8525390625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\匯出北風產品(分流)\OLE DB 來源">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

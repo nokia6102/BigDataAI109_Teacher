@@ -1,0 +1,10 @@
+C:\Users\梓君\Documents\Visual Studio 2017\Projects\Win_TestPicClassify\Win_TestPicClassify\bin\Debug\Win_TestPicClassify.exe.config
+C:\Users\梓君\Documents\Visual Studio 2017\Projects\Win_TestPicClassify\Win_TestPicClassify\bin\Debug\Win_TestPicClassify.exe
+C:\Users\梓君\Documents\Visual Studio 2017\Projects\Win_TestPicClassify\Win_TestPicClassify\bin\Debug\Win_TestPicClassify.pdb
+C:\Users\梓君\Documents\Visual Studio 2017\Projects\Win_TestPicClassify\Win_TestPicClassify\obj\Debug\Win_TestPicClassify.csprojResolveAssemblyReference.cache
+C:\Users\梓君\Documents\Visual Studio 2017\Projects\Win_TestPicClassify\Win_TestPicClassify\obj\Debug\Win_TestPicClassify.Form1.resources
+C:\Users\梓君\Documents\Visual Studio 2017\Projects\Win_TestPicClassify\Win_TestPicClassify\obj\Debug\Win_TestPicClassify.Properties.Resources.resources
+C:\Users\梓君\Documents\Visual Studio 2017\Projects\Win_TestPicClassify\Win_TestPicClassify\obj\Debug\Win_TestPicClassify.csproj.GenerateResource.Cache
+C:\Users\梓君\Documents\Visual Studio 2017\Projects\Win_TestPicClassify\Win_TestPicClassify\obj\Debug\Win_TestPicClassify.csproj.CoreCompileInputs.cache
+C:\Users\梓君\Documents\Visual Studio 2017\Projects\Win_TestPicClassify\Win_TestPicClassify\obj\Debug\Win_TestPicClassify.exe
+C:\Users\梓君\Documents\Visual Studio 2017\Projects\Win_TestPicClassify\Win_TestPicClassify\obj\Debug\Win_TestPicClassify.pdb

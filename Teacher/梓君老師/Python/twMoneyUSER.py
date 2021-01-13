@@ -55,6 +55,6 @@ plt.legend()
 fig.set_figwidth(10)
 fig.set_figheight(8)
 
-plt.savefig('c:\\PP\\test.png')
+plt.savefig('c:\\PP\\us_erMoney.png')
 
 plt.show()
